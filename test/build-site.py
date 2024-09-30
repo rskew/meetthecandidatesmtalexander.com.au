@@ -5,7 +5,7 @@ import click
 import chevron
 
 
-NO_ANSWER = ""
+NO_ANSWER = "(not answered)"
 COMMENT_TYPE = "comment"
 YES_NO_OTHER_TYPE = "yes_no_other"
 
@@ -274,7 +274,7 @@ EMAIL = "Email Address"
 NAME = "What is your full name?"
 WARD = "Which Mount Alexander Shire Council Ward are you running for in the 2024 local Council election?"
 ABOUT_CANDIDATE = "Please tell us about yourself, what makes you passionate about the Ward you are standing in, and why you chose to stand."
-SCORE = "Score"
+ABOUT = "Please tell us about yourself, what makes you passionate about the Ward you are standing in, and why you chose to stand."
 
 ORGS = [
     COMMONS,
@@ -297,6 +297,7 @@ def munge(row_dicts):
         if row[NAME] != "Tina Helm":
             munged_row = {
                 "candidate_name": row[NAME],
+                "about": row[ABOUT],
                 "picture": NAME_TO_PHOTO[row[NAME]],
                 "organisations": [
                     {**org,
@@ -310,11 +311,12 @@ def munge(row_dicts):
 
 def render_question(question, row):
     if question["answer_type"] == COMMENT_TYPE:
-        return {**question, "answer": row.get(question["text"], NO_ANSWER)}
+        return {**question, "answer": row.get(question["text"]) or NO_ANSWER}
     elif question["answer_type"] == YES_NO_OTHER_TYPE:
+        yes_no_other = row.get(question["text"], "")
         return {**question,
-                "yes_no_other": row.get(question["text"], ""),
-                "answer": row.get(question["comment_question"], NO_ANSWER)}
+                "yes_no_other": yes_no_other,
+                "answer": row.get(question["comment_question"]) or (NO_ANSWER if yes_no_other == "" else "")}
     else:
         raise ValueError(f"Blarrgh! {question}")
 

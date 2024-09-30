@@ -13,14 +13,13 @@
     margin: 0px;
   }
   #map-container {
-    height: 80vh;
-    width: 100vw;
     background-color: #a8cc53;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Horizontal centering */
     align-items: center;     /* Vertical centering */
     overflow-x: hidden;
+    height: 100%;
   }
   #map-title {
     font-size: 20px;
@@ -43,54 +42,10 @@
     background-color: #fa9400;
     fill: #fa9400;
   }
-  #community-groups-container {
-    background-color: #4f68ba;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  #community-groups-title {
-    font-size: 20px;
-    font-family: sans-serif;
-    color: white;
-    margin: 30px;
-    text-align: center;
-  }
-  #community-groups-columns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  .community-groups-column {
-    display: flex;
-    flex-direction: column;
-  }
-  .community-group-bubble {
-    background-color: #69c3e5;
-    padding: 20px;
-    border-radius: 20px;
-    margin: 13px;
-    font-size: 20px;
-    font-weight: 600px;
-    font-family: sans-serif;
-  }
   #everything-container {
     display: flex;
     flex-direction: column;
-  }
-  @media (min-width: 1000px) {
-    #everything-container {
-      flex-direction: row;
-    }
-    #community-groups-container, #map-container {
-      max-width: 50vw;
-      height: 95vh;
-      width: 50vw;
-      flex: 1;
-    }
-    #community-groups-container {
-      overflow-y: scroll;
-    }
+    height: 100vh;
   }
   svg text {
     pointer-events: none;
@@ -127,10 +82,10 @@
   }
   </script>
   <body>
-    <div>
-      <h1 style="background-color: #69c3e5; font-family: 'sans-serif'; font-weight: 400; text-align: center; padding: 15px;">Meet the Candidates Mount Alexander 2024</h1>
-    </div>
     <div id="everything-container">
+      <div>
+        <h1 style="background-color: #69c3e5; font-family: 'sans-serif'; font-weight: 400; text-align: center; padding: 15px;">Meet the Candidates Mount Alexander 2024</h1>
+      </div>
       <div id="map-container">
       <div id="map-title"><p>Click on your ward</p><p>to see your candidates<p></div>
         <svg viewBox="0 0 2000 1400">
@@ -171,31 +126,10 @@
             <a class="ward-name ward" id="Coliban-name" href="wards/coliban.html" onmouseover="highlightWard('Coliban')">Coliban</a>
           </div>
         </div>
-      </div>
-      <div id="community-groups-container">
-        <div id="community-groups-title">
-          Meet the community groups involved
-        </div>
-        <div id="community-groups-columns">
-          <div class="community-groups-column">
-            <div class="community-group-bubble">Castlemaine Commons</div>
-            <div class="community-group-bubble">Castlemaine Community House</div>
-            <div class="community-group-bubble">Castlemaine Pride</div>
-            <div class="community-group-bubble">Castlemaine Safe Space</div>
-            <div class="community-group-bubble">Castlemaine School Strike 4 Climate</div>
-            <div class="community-group-bubble">Central Victoria Climate Action</div>
-            <div class="community-group-bubble">Free Palestine Central Victoria</div>
-            <div class="community-group-bubble">Mount Alexander Shire Accommodation and Respite Group (MASARG)</div>
-            <div class="community-group-bubble">Mount Alexander Shire Disability Advocacy Group (MASDAG)</div>
-            <div class="community-group-bubble">My Home Network</div>
-            <div class="community-group-bubble">Rural Australians for Refugees - Castlemaine</div>
-            <div class="community-group-bubble">Young People of Mount Alexander Shire</div>
-          </div>
+        <div style="text-align: left; width: 100%">
+          <a href="https://discover.data.vic.gov.au/dataset/vicmap-admin-ward-polygon-2024" target="__blank" style="padding: 5px; font-family: sans-serif; font-size: 10px;">Map Source</a>
         </div>
       </div>
-    </div>
-    <div style="text-align: left; width: 100%">
-      <a href="https://discover.data.vic.gov.au/dataset/vicmap-admin-ward-polygon-2024" target="__blank" style="padding: 5px; font-family: sans-serif; font-size: 10px;">Map Source</a>
     </div>
   </body>
 </html>
