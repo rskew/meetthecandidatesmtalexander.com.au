@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{candidate_name}}</title>
+    <meta name="description" content="{{candidate_name}} Answers">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../favicon.png">
+  </head>
+  <style>
+  #everything-container {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 1000px) {
+    #everything-container {
+      flex-direction: row;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #questions-container {
+      overflow-y: scroll;
+    }
+  }
+  .organisations-sidebar-name {
+    padding: 5px;
+    margin: 5px;
+  }
+  .organisations-sidebar-name:hover {
+    background-color: #69c3e5;
+  }
+  #questions-container {
+    margin: 20px;
+  }
+  #organisations-sidebar {
+    margin: 20px;
+  }
+  </style>
+  <body style="font-family: sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center">
+    <h1>{{candidate_name}}</h1>
+    <img width="400px" src="photos/{{picture}}"</img>
+    <div id="everything-container">
+      <div id="organisations-sidebar" style="flex: 1">
+        {{#organisations}}
+        <a href="#{{title}}"><div class="organisations-sidebar-name">{{title}}</div></a>
+        {{/organisations}}
+      </div>
+      <div id="questions-container" style="flex: 2">
+        {{#organisations}}
+        <h2 id="{{title}}">{{title}}</h1>
+        <em>{{{blurb}}}</em>
+        {{#questions}}
+        <h4>{{text}}</h3>
+        <div style="padding: 5px;">
+        <b>{{yes_no_other}}</b>
+        </div>
+        {{answer}}
+        {{/questions}}
+        {{/organisations}}
+      </div>
+    </div>
+  </body>
+</html>
