@@ -134,8 +134,7 @@ SCHOOL_STRIKE = {
     "title": "Castlemaine School Strike 4 Climate",
     "blurb": "School Strike For Climate is a network of school students united by our concern for the future of our planet and all life on it.",
     "questions": [
-        {"text": """What role do you think that Council can play in fighting the climate crisis? And what do you think are its limitations?
-""",
+        {"text": "What role do you think that Council can play in fighting the climate crisis? And what do you think are its limitations?",
          "answer_type": COMMENT_TYPE},
         {"text": "Would you advocate at a State and Federal level to take stronger climate action if you were elected?",
          "answer_type": YES_NO_OTHER_TYPE,
