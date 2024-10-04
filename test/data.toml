@@ -20,12 +20,12 @@ uncontested = false
 
 [candidates."Gavan Thomson"]
 ward = "Campbells Creek"
-photo = "Gavan Thomson jmp_240601_3522 RT .jpg"
+photo = "gavan_medium_res.jpg"
 uncontested = false
 
 [candidates."Lucas Maddock"]
 ward = "Moonlight Creek"
-photo = "lucas.jpg"
+photo = "lucas_medium_res.jpg"
 uncontested = true
 
 [candidates."Kerrie Allen"]
@@ -35,7 +35,7 @@ uncontested = false
 
 [candidates."Phillip Walker"]
 ward = "Coliban"
-photo = "_ Walker, Phillip_3.jpeg"
+photo = "phil_medium_res.jpeg"
 uncontested = false
 
 [candidates."Ken Price "]
@@ -45,7 +45,7 @@ uncontested = false
 
 [candidates."Kelly Ann Blake"]
 ward = "Coliban"
-photo = "kelly_ann_blake.jpg"
+photo = "kelly_ann_blake_medium_res.jpg"
 uncontested = false
 
 [candidates."Tony Cordy"]
@@ -68,7 +68,7 @@ didnt_respond = true
 
 [candidates."Max Lesser"]
 ward = "Coliban"
-photo = "max01.jpg"
+photo = "max01_medium_res.jpg"
 uncontested = false
 didnt_respond = true
 
