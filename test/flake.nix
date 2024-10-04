@@ -12,6 +12,7 @@
         ${python}/bin/python ${./build-site.py} ${./data.toml} ${./responses.csv} ${./index.template.html} ./site ${./candidate.template.html} ./site/candidates ${./ward.template.html} ./site/wards
       '';
       packages.x86_64-linux.watch = pkgs.writeShellScriptBin "watch-rebuild" ''
+        ${python}/bin/python build-site.py data.toml responses.csv index.template.html site/ candidate.template.html site/candidates ward.template.html site/wards
         while ${pkgs.inotify-tools}/bin/inotifywait -e modify .; do ${python}/bin/python build-site.py data.toml responses.csv index.template.html site/ candidate.template.html site/candidates ward.template.html site/wards; done
       '';
     };
