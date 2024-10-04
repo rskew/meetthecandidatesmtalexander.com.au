@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Rosie Annear</title>
+    <meta name="description" content="Rosie Annear Answers">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../favicon.png">
+  </head>
+  <style>
+  html {
+	  scroll-behavior: smooth;
+  }
+  body {
+    background-color: #fee;
+    font-size: 15px;
+  }
+  #everything-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+  }
+  .organisations-name {
+    padding: 5px;
+    margin: 5px;
+    color: #833;
+    text-decoration: none;
+  }
+  .organisations-name:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
+  #questions-container {
+    margin: 20px;
+    max-width: 90vw;
+  }
+  #organisations {
+    margin: 20px;
+  }
+  .answer {
+    margin-left: 50px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+  }
+  #about {
+    margin: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    max-width: 60vw;
+  }
+  @media (min-width: 1000px) {
+    #questions-container {
+      max-width: 60vw;
+    }
+    #about {
+      max-width: 800px;
+    }
+  }
+  li::marker {
+    content: '- ';
+    font-size: 18px;
+  }
+  li {
+    margin-left: 20px;
+  }
+  .back {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+  }
+  .back:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
+  #back-to-top {
+    display: block;
+  }
+  #back-to-top.hidden {
+    display: none;
+  }
+  </style>
+  <script>
+    window.onscroll = function (oEvent) {
+      var mydivpos = document.getElementById("organisations").offsetTop;
+      var scrollPos = window.scrollY;
+      if(scrollPos >= mydivpos) {
+        document.getElementById("back-to-top").classList.remove("hidden");
+      } else {
+        document.getElementById("back-to-top").classList.add("hidden");
+      }
+    };
+  </script>
+  <body style="font-family: sans-serif; color: #444; display: flex; flex-direction: column; justify-content: center; align-items: center">
+    <div onclick="history.back()" class="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
+    <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
+    <img max-width="500px" max-height="500px" src="photos/rosie_annear.jpg" style="border-radius: 30px; max-width: 500px; max-height: 500px; margin-top: 30px"/>
+    <h1 style="font-weight: 400; margin: 15px">Rosie Annear</h1>
+    <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Standing for Barkers Creek (uncontested)</div>
+    <div id="everything-container">
+      <div id="about">
+        I appreciate the time and passion that has gone into the questionnaire, both from the organisers and the community groups represented in it. Please don’t misinterpret my lack of question-by-question responses as a lack of interest or support. I am supportive of these community groups and the issues they raise - housing, mental health, climate, human rights, diversity and inclusion. Many of these issues are at the core of why I ran for Council four years ago, and why I’m running again now.<br>I hope, over the last four years, and before, I have shown through actions, words, and values, that I consider things with an open mind and without judgement, that I take the time to listen to people and respond to their concerns as best I can, and that I really care about our shire and the people who live here.<br>However, I feel that many of the questions included here ask more than is reasonable of a candidate standing for local government, and ask me to commit to things that may be beyond my ability as a Councillor, or outside of Council’s control.<br>After four years of feeling honestly pretty overwhelmed by the weight of so many people’s contempt for and expectations of me (and of Council as a whole), I have learned an awful lot about what I can and can’t do, and that a Council – especially a small, rural one, like ours – can’t be all things and can’t do it all.<br>Again, that is not to say I will not advocate for the issues raised in this questionnaire - I know I will. But I’m unable to commit to the specific actions being asked of me as a Council candidate, as this may set me up for failure and people up for disappointment or anger.<br>Council is a complicated beast, more complex than anything I’ve navigated before (except parenthood, of course). I know so much more than I did four years ago, and with that comes knowledge of the limitations and challenges that Councillors and Council faces. Nothing is easy, everything takes time, and some things are just out of scope of what local government can do.<br>I guess what I’m really trying to do here is ask people to trust me a bit. Trust that I care about these issues, that I will support and advocate for them - when I can - and that I will continue to keep community top of mind and front of heart in everything I do.<br>
+      </div>
+    </div>
+  </body>
+</html>

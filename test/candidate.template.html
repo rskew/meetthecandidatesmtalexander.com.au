@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{name}}</title>
+    <meta name="description" content="{{name}} Answers">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../favicon.png">
+  </head>
+  <style>
+  html {
+	  scroll-behavior: smooth;
+  }
+  body {
+    background-color: #fee;
+    font-size: 15px;
+  }
+  #everything-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+  }
+  .organisations-name {
+    padding: 5px;
+    margin: 5px;
+    color: #833;
+    text-decoration: none;
+  }
+  .organisations-name:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
+  #questions-container {
+    margin: 20px;
+    max-width: 90vw;
+  }
+  #organisations {
+    margin: 20px;
+  }
+  .answer {
+    margin-left: 50px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+  }
+  #about {
+    margin: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    max-width: 60vw;
+  }
+  @media (min-width: 1000px) {
+    #questions-container {
+      max-width: 60vw;
+    }
+    #about {
+      max-width: 800px;
+    }
+  }
+  li::marker {
+    content: '- ';
+    font-size: 18px;
+  }
+  li {
+    margin-left: 20px;
+  }
+  .back {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+  }
+  .back:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
+  #back-to-top {
+    display: block;
+  }
+  #back-to-top.hidden {
+    display: none;
+  }
+  </style>
+  <script>
+    window.onscroll = function (oEvent) {
+      var mydivpos = document.getElementById("organisations").offsetTop;
+      var scrollPos = window.scrollY;
+      if(scrollPos >= mydivpos) {
+        document.getElementById("back-to-top").classList.remove("hidden");
+      } else {
+        document.getElementById("back-to-top").classList.add("hidden");
+      }
+    };
+  </script>
+  <body style="font-family: sans-serif; color: #444; display: flex; flex-direction: column; justify-content: center; align-items: center">
+    <div onclick="history.back()" class="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
+    <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
+    <img max-width="500px" max-height="500px" src="photos/{{picture}}" style="border-radius: 30px; max-width: 500px; max-height: 500px; margin-top: 30px"/>
+    <h1 style="font-weight: 400; margin: 15px">{{name}}</h1>
+    <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Standing for {{ward}}{{#uncontested}} ({{uncontested}}){{/uncontested}}</div>
+    <div id="everything-container">
+      <div id="about">
+        {{{about}}}
+      </div>
+      {{#has_answers}}
+        <div id="organisations" style="flex: 1">
+          <h3>Questions by Community Group</h3>
+          {{#organisations}}
+          <a href="#{{title}}" style="text-decoration: none;"><div class="organisations-name">{{title}}</div></a>
+          {{/organisations}}
+        </div>
+        <div id="questions-container" style="flex: 2">
+          {{#organisations}}
+            <br>
+            <div id="{{title}}" style="font-size: 25px; color: #833; margin-top: 30px;">{{title}}</div>
+            <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 2px;
+                        padding: 20px; padding-top: 0; padding-bottom: 0;">{{{blurb}}}</div>
+            {{#questions}}
+              <hr size="1" align="left" width="30%" style="margin: 20px;">
+              <li><i>{{text}}</i></li>
+              <div class="answer" style="padding: 15px; margin-left: 33px; margin-bottom: 0px;">
+                {{{yes_no_other}}}
+              </div>
+              <div class="answer">
+                {{{answer}}}
+              </div>
+            {{/questions}}
+          {{/organisations}}
+        </div>
+      {{/has_answers}}
+    </div>
+  </body>
+</html>

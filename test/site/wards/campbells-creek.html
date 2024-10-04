@@ -10,11 +10,12 @@
   </head>
   <style>
   .candidate-name {
-    font-family: sans-serif;
     font-size: 20px;
     font-weight: 400;
     margin: 20px;
     margin-left: 40px;
+    text-align: center;
+    color: #333;
   }
   .candidate {
     display: flex;
@@ -23,12 +24,11 @@
     padding: 20px;
   }
   .candidate:hover {
-    background-color: #fa9400;
+    background-color: #f909;
     cursor: pointer;
   }
   img {
-    width: 300px;
-    border-top-right-radius: 100px;
+    border-radius: 30px;
   }
   #candidate-container {
     display: flex;
@@ -46,29 +46,40 @@
       height: 100%;
     }
   }
+  #back {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  #back:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
   </style>
-  <body style="background-color: #a8cc53; display: flex; flex-direction: column; justify-content: space-around">
-    <h1 style="text-align: center; font-family: 'sans-serif'; font-size: 30px; font-weight: 400; margin-top: 50px;">
-      Calder Ward
-    </h1>
+  <body style="background-color: #fee; color: #444; font-family: 'sans-serif'; display: flex; flex-direction: column; justify-content: space-around">
+    <div onclick="history.back()" id="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
+    <div style="text-align: center; font-size: 30px; font-weight: 400; margin-top: 50px;">
+      Campbells Creek
+    </div>
     <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center">
       <div id="candidate-container">
-        <a href="../candidates/bill-maltby.html">
-          <div class="candidate">
-            <img src="../candidates/photos/maltby_150x150.jpg"/>
-            <h3 class="candidate-name">
-              Bill maltby
-            </h3>
-          </div>
-        </a>
-        <a href="../candidates/gavan-thomson.html">
-          <div class="candidate">
-            <img src="../candidates/photos/Gavan Thomson jmp_240601_3522 RT .jpg"/>
-            <h3 class="candidate-name">
-              Gavan Thomson
-            </h3>
-          </div>
-        </a>
+          <a href="../candidates/bill-maltby.html" style="text-decoration: none;">
+            <div class="candidate">
+              <img style="max-width: 400px; max-height: 400px; object-fit: contain" src="../candidates/photos/maltby_150x150.jpg"/>
+              <div class="candidate-name">
+                Bill Maltby
+              </div>
+            </div>
+          </a>
+          <a href="../candidates/gavan-thomson.html" style="text-decoration: none;">
+            <div class="candidate">
+              <img style="max-width: 400px; max-height: 400px; object-fit: contain" src="../candidates/photos/Gavan Thomson jmp_240601_3522 RT .jpg"/>
+              <div class="candidate-name">
+                Gavan Thomson
+              </div>
+            </div>
+          </a>
       </div>
     </div>
   </body>

@@ -10,11 +10,12 @@
   </head>
   <style>
   .candidate-name {
-    font-family: sans-serif;
     font-size: 20px;
     font-weight: 400;
     margin: 20px;
     margin-left: 40px;
+    text-align: center;
+    color: #333;
   }
   .candidate {
     display: flex;
@@ -23,12 +24,11 @@
     padding: 20px;
   }
   .candidate:hover {
-    background-color: #fa9400;
+    background-color: #f909;
     cursor: pointer;
   }
   img {
-    width: 300px;
-    border-top-right-radius: 100px;
+    border-radius: 30px;
   }
   #candidate-container {
     display: flex;
@@ -46,37 +46,48 @@
       height: 100%;
     }
   }
+  #back {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  #back:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
   </style>
-  <body style="background-color: #a8cc53; display: flex; flex-direction: column; justify-content: space-around">
-    <h1 style="text-align: center; font-family: 'sans-serif'; font-size: 30px; font-weight: 400; margin-top: 50px;">
-      Calder Ward
-    </h1>
+  <body style="background-color: #fee; color: #444; font-family: 'sans-serif'; display: flex; flex-direction: column; justify-content: space-around">
+    <div onclick="history.back()" id="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
+    <div style="text-align: center; font-size: 30px; font-weight: 400; margin-top: 50px;">
+      Calder
+    </div>
     <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center">
       <div id="candidate-container">
-        <a href="../candidates/kerrie-allen.html">
-          <div class="candidate">
-            <img src="../candidates/photos/Kerrie Allen_JPG_002.jpg"/>
-            <h3 class="candidate-name">
-              Kerrie Allen
-            </h3>
-          </div>
-        </a>
-        <a href="../candidates/tony-cordy.html">
-          <div class="candidate">
-            <img src="../candidates/photos/Councillor_T_Cordy.jpg"/>
-            <h3 class="candidate-name">
-              Tony Cordy
-            </h3>
-          </div>
-        </a>
-        <a href="../candidates/ken-price.html">
-          <div class="candidate">
-            <img src="../candidates/photos/Screenshot 2024-09-27 192503.png"/>
-            <h3 class="candidate-name">
-              Ken Price 
-            </h3>
-          </div>
-        </a>
+          <a href="../candidates/ken-price.html" style="text-decoration: none;">
+            <div class="candidate">
+              <img style="max-width: 400px; max-height: 400px; object-fit: contain" src="../candidates/photos/ken_price.png"/>
+              <div class="candidate-name">
+                Ken Price 
+              </div>
+            </div>
+          </a>
+          <a href="../candidates/kerrie-allen.html" style="text-decoration: none;">
+            <div class="candidate">
+              <img style="max-width: 400px; max-height: 400px; object-fit: contain" src="../candidates/photos/Kerrie Allen_JPG_002.jpg"/>
+              <div class="candidate-name">
+                Kerrie Allen
+              </div>
+            </div>
+          </a>
+          <a href="../candidates/tony-cordy.html" style="text-decoration: none;">
+            <div class="candidate">
+              <img style="max-width: 400px; max-height: 400px; object-fit: contain" src="../candidates/photos/Councillor_T_Cordy.jpg"/>
+              <div class="candidate-name">
+                Tony Cordy
+              </div>
+            </div>
+          </a>
       </div>
     </div>
   </body>

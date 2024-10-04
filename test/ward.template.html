@@ -1,0 +1,80 @@
+<!doctype html>
+<html style="height: 100%">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Mt Alexander Meet the Candidates</title>
+      <meta name="description" content="Mt Alexander Meet the Candidates">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/png" href="../favicon.png">
+  </head>
+  <style>
+  .candidate-name {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px;
+    margin-left: 40px;
+    text-align: center;
+    color: #333;
+  }
+  .candidate {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+  }
+  .candidate:hover {
+    background-color: #f909;
+    cursor: pointer;
+  }
+  img {
+    border-radius: 30px;
+  }
+  #candidate-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  @media (min-width: 1000px) {
+    #candidate-container {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      justify-content: space-around;
+    }
+    body {
+      height: 100%;
+    }
+  }
+  #back {
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  #back:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
+  </style>
+  <body style="background-color: #fee; color: #444; font-family: 'sans-serif'; display: flex; flex-direction: column; justify-content: space-around">
+    <div onclick="history.back()" id="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
+    <div style="text-align: center; font-size: 30px; font-weight: 400; margin-top: 50px;">
+      {{ward_name}}
+    </div>
+    <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center">
+      <div id="candidate-container">
+        {{#candidates}}
+          <a href="../candidates/{{candidate_name_kebab}}.html" style="text-decoration: none;">
+            <div class="candidate">
+              <img style="max-width: 400px; max-height: 400px; object-fit: contain" src="../candidates/photos/{{picture}}"/>
+              <div class="candidate-name">
+                {{candidate_name}}
+              </div>
+            </div>
+          </a>
+        {{/candidates}}
+      </div>
+    </div>
+  </body>
+</html>

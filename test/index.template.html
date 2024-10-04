@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Mt Alexander Meet the Candidates</title>
+      <meta name="description" content="Mt Alexander Meet the Candidates">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/png" href="favicon.png">
+  </head>
+  <style>
+  html {
+    font-family: sans-serif;
+  }
+  body, p, h1 {
+    margin: 0px;
+  }
+  #map-container {
+    background-color: #fee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Horizontal centering */
+    align-items: center;     /* Vertical centering */
+    overflow-x: hidden;
+    height: 100%;
+  }
+  #map-title {
+    font-size: 20px;
+    color: #333;
+    font-weight: 400px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  #find-your-ward {
+    font-size: 15px;
+    color: #333;
+    margin-top: 20px;
+  }
+  .ward-name {
+    position: relative;
+    top: 20px;
+    font-size: 20px;
+    padding: 7px;
+    margin: 3px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #333;
+  }
+  .ward {
+    cursor: pointer;
+  }
+  .ward.highlight {
+    background-color: #f909;
+    fill: #f909;
+    text-decoration: underline;
+  }
+  #everything-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  svg text {
+    pointer-events: none;
+  }
+  .socials-link {
+      margin: 5px;
+  }
+  .socials-icon {
+      width: 30px;
+      height: 30px;
+  }
+  </style>
+  <script>
+  function clearWardHighlight() {
+    Array.from(document.getElementsByClassName('ward')).map(function(element){element.classList.remove('highlight')});
+  }
+  function highlightWard(wardName) {
+    clearWardHighlight();
+    document.getElementById(wardName + "-name").classList.add('highlight');
+    document.getElementById(wardName + "-map").classList.add('highlight');
+  }
+  </script>
+  <body>
+    <div id="everything-container">
+      <div style="background-color: #cef; color: #333; font-weight: 400; text-align: center; padding: 15px;">
+        <div style="font-size: 24px; padding-bottom: 10px;">Meet the Candidates Mount Alexander 2024</div>
+        <div style="font-size: 16px">Media from the Event
+        <a class="socials-link" href="https://www.facebook.com/meetthecandidatesmtalexander" target="_blank" rel="noopener noreferrer">
+            <img class="socials-icon" src="facebook_icon.svg" alt="Facebook link"/></a>
+        <a class="socials-link" href="https://www.instagram.com/meetthecandidatesmtalex?igsh=M3I3aGIwbDZiYm81" target="_blank" rel="noopener noreferrer">
+            <img class="socials-icon" src="insta_icon.svg" alt="Insta link"/></a>
+        </div>
+      </div>
+      <div id="map-container">
+        <div id="map-title"><p>Click on your ward</p><p>to see your candidates<p></div>
+        <div id="find-your-ward"><p>Don't know your ward? <a href="https://www.vec.vic.gov.au/electoral-boundaries/local-councils/mount-alexander-shire-council" target="_blank" rel="noopener noreferrer">Find your ward here</a></p></div>
+        <svg viewBox="0 0 2000 1400">
+          <g stroke-linejoin="bevel" font-size="37.5" stroke-linecap="square" transform="matrix(1,0,0,1,-550,-550)" fill="#5caa" stroke-opacity="1" stroke-width="1" font-weight="400" fill-opacity="1" font-style="normal" stroke="#000">
+            {{#wards}}
+              <path class="ward" id="{{name}}-map" ontouchstart="highlightWard('{{name}}')" onmouseover="highlightWard('{{name}}')" onmouseout="clearWardHighlight()" onclick="window.location = '{{link_to}}'" d="{{boundary_path}}"/>
+            {{/wards}}
+          </g>
+          <g font-size="37.5" font-weight="400" font-style="normal" stroke="#000">
+            {{#towns}}
+              <text x="{{x}}" y="{{y}}">{{name}}</text>
+            {{/towns}}
+          </g>
+        </svg>
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin: 20px">
+          {{#ward_groups}}
+            <div style="display: flex; flex-direction: column">
+              {{#wards}}
+                <a class="ward-name ward" id="{{name}}-name" href="{{link_to}}" onmouseover="highlightWard('{{name}}')" onmouseout="clearWardHighlight()">{{name}}</a>
+              {{/wards}}
+            </div>
+          {{/ward_groups}}
+        </div>
+        <div style="text-align: left; width: 100%">
+          <a href="https://discover.data.vic.gov.au/dataset/vicmap-admin-ward-polygon-2024" style="padding: 5px; font-size: 10px;" target="_blank" rel="noopener noreferrer">Map Source</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
