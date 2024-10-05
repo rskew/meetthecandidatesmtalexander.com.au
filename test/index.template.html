@@ -9,14 +9,18 @@
       <link rel="icon" type="image/png" href="favicon.png">
   </head>
   <style>
+  @font-face { font-family: blah; src: url('HeadingNowTrial-63Book.ttf'); }
+  @font-face { font-family: blahbold; src: url('HeadingNowTrial-65Medium.ttf'); }
   html {
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
+    font-family: blah;
   }
   body, p, h1 {
     margin: 0px;
   }
   #map-container {
-    background-color: #fee;
+    /*background-color: #a8cc53; */
+    background-color: #eee;
     display: flex;
     flex-direction: column;
     align-items: center;     /* Vertical centering */
@@ -48,8 +52,8 @@
     cursor: pointer;
   }
   .ward.highlight {
-    background-color: #f909;
-    fill: #f909;
+    background-color: #69c3e5;
+    fill: #69c3e5;
     text-decoration: underline;
   }
   #everything-container {
@@ -80,8 +84,8 @@
   </script>
   <body>
     <div id="everything-container">
-      <div style="background-color: #cef; color: #333; font-weight: 400; text-align: center; padding: 15px;">
-        <div style="font-size: 24px; padding-bottom: 10px;">Meet the Candidates Mount Alexander 2024</div>
+      <div style="background-color: #a8cc53e0; color: #333; font-weight: 400; text-align: center; padding: 15px;">
+        <div style="font-family: blahbold; font-size: 24px; padding-bottom: 10px;">Meet the Candidates Mount Alexander 2024</div>
         <div style="font-size: 12px">See media from the event
         <a class="socials-link" href="https://www.facebook.com/meetthecandidatesmtalexander" target="_blank" rel="noopener noreferrer">
             <img class="socials-icon" src="facebook_icon.svg" alt="Facebook link"/></a>
@@ -93,12 +97,12 @@
         <div id="map-title"><p>Click on your ward</p><p>to see your candidates<p></div>
         <div id="find-your-ward"><p>Don't know your ward? <a href="https://www.vec.vic.gov.au/electoral-boundaries/local-councils/mount-alexander-shire-council" target="_blank" rel="noopener noreferrer">Find your ward here</a></p></div>
         <svg viewBox="0 0 2000 1400">
-          <g stroke-linejoin="bevel" font-size="37.5" stroke-linecap="square" transform="matrix(1,0,0,1,-550,-550)" fill="#5caa" stroke-opacity="1" stroke-width="1" font-weight="400" fill-opacity="1" font-style="normal" stroke="#000">
+          <g stroke-linejoin="bevel" font-size="37.5" stroke-linecap="square" transform="matrix(1,0,0,1,-550,-550)" fill="#ff91a4" stroke-opacity="1" stroke-width="1" font-weight="400" fill-opacity="1" font-style="normal" stroke="#000">
             {{#wards}}
               <path class="ward" id="{{name}}-map" ontouchstart="highlightWard('{{name}}')" onmouseover="highlightWard('{{name}}')" onmouseout="clearWardHighlight()" onclick="window.location = '{{link_to}}'" d="{{boundary_path}}"/>
             {{/wards}}
           </g>
-          <g font-size="37.5" font-weight="400" font-style="normal" stroke="#000">
+          <g font-size="37.5" font-weight="200" stroke="#000">
             {{#towns}}
               <text x="{{x}}" y="{{y}}">{{name}}</text>
             {{/towns}}
