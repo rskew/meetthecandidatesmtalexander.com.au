@@ -9,15 +9,18 @@
     <link rel="icon" type="image/png" href="../favicon.png">
   </head>
   <style>
-  @font-face { font-family: blah; src: url('../HeadingNowTrial-63Book.ttf'); }
-  @font-face { font-family: blahbold; src: url('../HeadingNowTrial-65Medium.ttf'); }
+  @font-face { font-family: noto-sans; src: url('../NotoSans-Light.ttf'); }
+  @font-face { font-family: noto-sans-medium; src: url('../NotoSans-Medium.ttf'); }
   html {
-    font-family: blah;
+    font-family: noto-sans;
 	  scroll-behavior: smooth;
   }
   body {
     background-color: #eee;
     font-size: 15px;
+  }
+  p {
+    margin-bottom: 0px;
   }
   img {
     filter: grayscale(100%);
@@ -97,11 +100,11 @@
     <div onclick="history.back()" class="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
     <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
     <img max-width="500px" max-height="500px" src="photos/toby_heydon.png" style="border-radius: 30px; max-width: 500px; max-height: 500px; margin-top: 30px"/>
-    <h1 style="font-family: blah; font-weight: 400; margin: 15px">Toby Heydon</h1>
+    <h1 style="font-weight: 400; margin: 15px">Toby Heydon</h1>
     <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Standing for Forest Creek (uncontested)</div>
     <div id="everything-container">
       <div id="about">
-        This candidate did not respond to the questionnaire
+        <p>This candidate did not respond to the questionnaire</p>
       </div>
     </div>
   </body>

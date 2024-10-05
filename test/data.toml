@@ -449,28 +449,3 @@ name = "Elphinstone"
 x=1300
 y=920
 name = "Taradale"
-
-[[towns]]
-x=600
-y=480
-name = "Maldon"
-
-[[towns]]
-x=570
-y=820
-name = "Newstead"
-
-[[towns]]
-x=1100
-y=540
-name = "Harcourt"
-
-[[towns]]
-x=1250
-y=820
-name = "Elphinstone"
-
-[[towns]]
-x=1300
-y=920
-name = "Taradale"

@@ -30,11 +30,11 @@ def munge(data, row_dicts):
             "ward": candidate["ward"],
             "ward_kebab": kebabify(candidate["ward"]),
             "uncontested": "uncontested" if candidate["uncontested"] else "",
-            "about": "<br>".join(about.split("\n")),
+            "about": paragraphify(about),
             "picture": candidate["photo"],
             "organisations": [
                 {**org,
-                 "blurb": "<br>".join(org["blurb"].split("\n")),
+                 "blurb": paragraphify(org["blurb"]),
                  "questions": [render_question(question, answers_row)
                                for question in org["questions"]]}
                 for org in data["organisations"]
@@ -50,18 +50,22 @@ def render_question(question, row):
         rendered = {**question, "answer": row.get(question["text"]) or NO_ANSWER}
     elif question["answer_type"] == YES_NO_OTHER_TYPE:
         yes_no_other = row.get(question["text"], "")
-        yes_no_other = f"<b>{yes_no_other}</b>" if yes_no_other in ["Yes", "No"] else "<br>".join(yes_no_other.split("\n"))
+        yes_no_other = f"<b>{yes_no_other}</b>" if yes_no_other in ["Yes", "No"] else paragraphify(yes_no_other)
         rendered = {**question,
                     "yes_no_other": yes_no_other,
                     "answer": row.get(question["comment_question"]) or (NO_ANSWER if yes_no_other == "" else "")}
         rendered["answer"] = fix_typos(rendered["answer"])
-        rendered["answer"] = "<br>".join(rendered["answer"].split("\n"))
+        rendered["answer"] = paragraphify(rendered["answer"])
     else:
         raise ValueError(f"Blarrgh! {question}")
+    rendered["text"] = paragraphify(rendered["text"])
     return rendered
 
 def kebabify(text):
     return "-".join(text.lower().split())
+
+def paragraphify(text):
+    return "".join([f"<p>{line}</p>" for line in text.split("\n")])
 
 def fix_typos(text):
     text = text.replace("I 'm", "I'm")
