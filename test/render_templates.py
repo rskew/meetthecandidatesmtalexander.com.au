@@ -24,6 +24,12 @@ def munge(data, row_dicts):
             about = "This candidate did not respond to the questionnaire"
         else:
             about = answers_row[data["about"]]
+        sections_nested = [
+            org_sections(org, answers_row)
+            for org in data["organisations"]
+        ]
+        sections = [section for inner_sections in sections_nested for section in inner_sections]
+        sections[0]["active"] = True
         munged_candidate = {
             "name": fix_typos(candidate["name"]),
             "name_kebab": kebabify(candidate["name"]),
@@ -32,6 +38,7 @@ def munge(data, row_dicts):
             "uncontested": "uncontested" if candidate["uncontested"] else "",
             "about": paragraphify(about),
             "picture": candidate["picture"],
+            "sections": sections,
             "organisations": [
                 {**org,
                  "blurb": paragraphify(org["blurb"]),
@@ -45,20 +52,36 @@ def munge(data, row_dicts):
         candidates.append(munged_candidate)
     return candidates
 
-def render_question(question, row):
+def org_sections(org, row):
+    sections = [{"title": org["title"],
+                 "blurb": paragraphify(fix_typos(org["blurb"]))}]
+    for question in org["questions"]:
+        sections.append({"question": {"text": paragraphify(fix_typos(question["text"])), "answer": render_answer(question, row)}})
+    return sections
+
+def render_answer(question, row):
     if question["answer_type"] == COMMENT_TYPE:
-        rendered = {**question, "answer": row.get(question["text"]) or NO_ANSWER}
+        answer = row.get(question["text"]) or NO_ANSWER
     elif question["answer_type"] == YES_NO_OTHER_TYPE:
         yes_no_other = row.get(question["text"], "")
-        yes_no_other = f"<b>{yes_no_other}</b>" if yes_no_other in ["Yes", "No"] else paragraphify(yes_no_other)
-        rendered = {**question,
-                    "yes_no_other": yes_no_other,
-                    "answer": row.get(question["comment_question"]) or (NO_ANSWER if yes_no_other == "" else "")}
-        rendered["answer"] = fix_typos(rendered["answer"])
-        rendered["answer"] = paragraphify(rendered["answer"])
+        if yes_no_other in ["Yes", "No"]:
+            yes_no_other = f"<p><b>{yes_no_other}</b></p>"
+        elif yes_no_other == "Refer below":
+            yes_no_other = ""
+        else:
+            yes_no_other = paragraphify(yes_no_other)
+        answer = row.get(question["comment_question"]) or (NO_ANSWER if yes_no_other == "" else "")
+        answer = paragraphify(fix_typos(answer))
+        answer = yes_no_other + answer
     else:
         raise ValueError(f"Blarrgh! {question}")
-    rendered["text"] = paragraphify(rendered["text"])
+    return answer
+
+def render_question(question, row):
+    answer = render_answer(question, row)
+    rendered = {}
+    rendered["text"] = paragraphify(question["text"])
+    rendered["answer"] = answer
     return rendered
 
 def kebabify(text):

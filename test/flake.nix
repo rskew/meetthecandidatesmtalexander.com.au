@@ -6,7 +6,7 @@
   outputs = { self, nixpkgs }:
     let pkgs = import nixpkgs { system = "x86_64-linux"; };
         python = pkgs.python3.withPackages (ps: with ps; [ chevron click ]);
-    in rec {
+    in {
       packages.x86_64-linux.default = pkgs.writeShellScriptBin "answers-to-html" ''
         mkdir -p site/candidates
         ${python}/bin/python ${./render_templates.py} ${./data.toml} ${./responses.csv} ${./index.template.html} ./site ${./candidate.template.html} ./site/candidates ${./ward.template.html} ./site/wards

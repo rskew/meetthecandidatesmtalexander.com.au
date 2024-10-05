@@ -49,8 +49,8 @@
     margin: 20px;
   }
   .answer {
+    margin: 15px;
     margin-left: 50px;
-    margin-bottom: 15px;
     font-size: 16px;
     font-weight: 400;
   }
@@ -83,18 +83,52 @@
   #back-to-top.hidden {
     display: none;
   }
+  .section {
+    display: none;
+  }
+  .section.active {
+    display: block;
+  }
+  .section_button {
+    cursor: pointer;
+  }
   </style>
-    <script>
-      window.onscroll = function (oEvent) {
-        var mydivpos = document.getElementById("organisations").offsetTop;
-        var scrollPos = window.scrollY;
-        if(scrollPos >= mydivpos) {
-          document.getElementById("back-to-top").classList.remove("hidden");
-        } else {
-          document.getElementById("back-to-top").classList.add("hidden");
-        }
-      };
-    </script>
+  <script>
+    window.onscroll = function (oEvent) {
+      var mydivpos = document.getElementById("organisations").offsetTop;
+      var scrollPos = window.scrollY;
+      if(scrollPos >= mydivpos) {
+        document.getElementById("back-to-top").classList.remove("hidden");
+      } else {
+        document.getElementById("back-to-top").classList.add("hidden");
+      }
+    };
+
+    window.addEventListener("load", function() {
+      const sections = document.querySelectorAll('.section');
+      let currentSection = 0;
+
+      function updateSection() {
+        sections.forEach((section, index) => {
+          if (index === currentSection) {
+            section.classList.add('active');
+          } else {
+            section.classList.remove('active');
+          }
+        });
+      }
+
+      document.getElementById('section_button_left').addEventListener('click', () => {
+        currentSection = (currentSection - 1 + sections.length) % sections.length;
+        updateSection();
+      });
+
+      document.getElementById('section_button_right').addEventListener('click', () => {
+        currentSection = (currentSection + 1) % sections.length;
+        updateSection();
+      });
+    })
+  </script>
   <body style="display: flex; flex-direction: column; justify-content: center; align-items: center">
     <div onclick="history.back()" class="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
     <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
@@ -120,50 +154,305 @@
           <a href="#Rural Australians for Refugees - Castlemaine" style="text-decoration: none;"><div class="organisations-name">Rural Australians for Refugees - Castlemaine</div></a>
           <a href="#Young People of Mount Alexander Shire" style="text-decoration: none;"><div class="organisations-name">Young People of Mount Alexander Shire</div></a>
         </div>
+        <!--
+        <div id="sections_with_buttons" style="display: flex; flex-direction: row; justify-content: space-between">
+          <div class="section_button" id="section_button_left" style="display: flex; flex-direction: column; justify-content: center"><</div>
+          <div id="sections">
+                <div class="section active">
+                  <div id="Castlemaine Commons" style="font-size: 25px; color: #833; margin-top: 20px;">Castlemaine Commons</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>Formed during the early stages of COVID-19, the Castlemaine Commons collective works responsively and locally hosting events & discussions -  fostering new ways of communication, community connection, sense making, catalysing action and creating collective future visions. </p><p></p><p>We are also part of the newly formed First Nations Solidarity Network - Liyanganyuk Banyul. As non-Indigenous community members we understand it is our responsibility to walk together in right relationship with a commitment to truth telling. We know that when First Peoples are supported to thrive, we all thrive.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Since the referendum we have seen an increase in racism in schools and across our community. How will you address this division and ensure there is accountability and transparency about the learning and truth telling that is needed? </p></i></div>
+                  <div class="answer">
+                    Council can and should lead the change we need to address racism in our community. I'm committed to First Nations justice, in which learning and truth telling are vital. Schools and our education institutions must provide culturally safe and appropriate learning environments for all, especially First Nations people. First Nations people are best placed to direct and lead what this looks like. I'm committed to working with First Nations groups to understand the best way to address racism and promote inclusiveness. Where state and Federal institutions fail our community, including in schools, Council should be playing a key role in articulating shortfalls and advocating for solutions.
+
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Would you support offering and increasing professional development for all Council staff in cultural awareness and anti-racism, and making this a requirement of both Councillors and the Executive team within Council? </p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>Council has a responsibility to provide safe and inclusive work environments. They also have a responsibility to model good leadership to our broader community. Cultural awareness training is key to understanding the often unconscious privileges, prejudices, unconscious biases, which is vital for a racism-free workplace. </p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Djaara (Dja Dja Wurrung Clans Aboriginal Corporation) and Nalderun Education Aboriginal Organisation provide an important contribution to this community. Will you commit to strengthening the collaborative relationships and support that has been built between MASC and these organisations as well as with other local First Nations led enterprises and organisations? </p><p>This may be through increasing funding from MASC for programs run by Nalderun Education Aboriginal Organisation, such as the Me-Mandook Bush Tucker Education Place, increasing advocacy and in-kind support, increased partnerships and meaningful relationship building.</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>These relationships are vital and Council should always be working towards strengthening them.</p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>As you are settling into your Council role later this year, the Victorian Treaty process will be entering into an important stage of Statewide Treaty negotiations, with local Traditional Owner Treaties commencing soon after. </p><p>What role do you envision MASC playing in the Treaty process, and how can you support local Treaty negotiations in partnership with local Traditional Owners, Elders and First Nations Leaders? </p><p>Preparing MASC for local Traditional Owner Treaty negotiations may include, for example, development of a discussion paper on how Council can engage with the Treaty Negotiation Framework.</p></i></div>
+                  <div class="answer">
+                    I will always take the lead from traditional Owners, Elders and First Nations Leaders as to the best way to advance the Victorian Treaty process. I will support any practical measure which will advance this process and support First Nations Justice. 
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Will you write to the First Peoples’ Assembly of Victoria and the Treaty Authority, the independent body that oversees Treaty-making in Victoria, to express the Shire’s desire to be party to future Traditional Owner Treaties?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>I will support any practical initiative from First Nations groups which will promote and further efforts towards Traditional Owner Treaties. I will work with Council and Councillors towards supporting Traditional Owner Treaties and advocating to First Peoples’ Assembly of Victoria and the Treaty Authority as such.</p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Castlemaine Community House" style="font-size: 25px; color: #833; margin-top: 20px;">Castlemaine Community House</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><p><a href="https://cch.org.au/" target="_blank" rel="noopener noreferrer">Castlemaine Community House</a> (CCH) provides programs and activities contributing to community development and supporting individuals and groups within the local community.</p></p><p><p>CCH is:</p><ul><li>a learning centre</li><li>a meeting place</li><li>a not-for-profit enterprise</li><li>a drop-in centre</li><li>a supportive, welcoming place</li><li>an information network</li></ul></p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>How will you maintain strong connections and ensure you keep in touch with your constituents?</p></i></div>
+                  <div class="answer">
+                    Meeting and connecting with the communities of Moonlight Creek has been the most enjoyable part of my campaign. I love talking to people, hearing about their experiences and ideas, and workshopping the issues that matter most to them. I will continue to make myself available through regular, formal and informal listening posts, and will continue to knock on community doors to canvas feedback on the issues that matter most to this community. I also welcome  feedback and input from all constituents and groups at any time by emailing lucas.maddock@vic.greens.org.au. 
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>How effective are you at collaborating with people who may have different perspectives and values?</p></i></div>
+                  <div class="answer">
+                    As an adult-educator in TAFEs, universities and community organisations, I have worked effectively with very broad cross-sections of our society. I have always recognised and appreciated the differing perspectives in any teaching groups and have been committed to listening to and understanding them. I believe strongly in the power of respectful dialogue and communication to reach consensus, even where there may be significant differences. I look forward to bringing this into the Councillor role.
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>In your view, what contributes to a resilient community, and how can the council support that?</p></i></div>
+                  <div class="answer">
+                    A diverse, equitable and healthy community is a resilient community. Council can support diversity by ensuring inclusiveness, most importantly in decision making roles. It can promote equitable outcomes by adjusting its operations in recognition of the differing abilities and privileges of our community members. Council can promote healthy communities by helping to address housing and cost of living stress, providing vital services, and promoting culture and recreation. 
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Castlemaine Pride" style="font-size: 25px; color: #833; margin-top: 20px;">Castlemaine Pride</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://castlemainepride.org.au/" target="_blank" rel="noopener noreferrer">Castlemaine Pride</a> is a volunteer-led community group that organises the Pride Festival each year. The community grew out of the local grassroots movement in support of marriage equality. They continue to support and connect the local LGBTQIA+ community and advocate for the safety and inclusion of LGBTQIA+ people in the Mount Alexander Shire.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Things should be getting better for LGBTQIA+ young people but, alarmingly, in 2024 discrimination and hate speech is on the rise. 66% of LGBTQIA+ youth in Australia still experience discrimination just for being who they are. </p><p></p><p>If elected to council, do you commit to engaging with and supporting LGBTQIA+ youth to create a Discrimination Action Plan in our Shire?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>Our council should be doing everything it can to work towards a discrimination-free shire. I will support any practical measure to work towards this. </p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>A key gap in Australia is the lack of population-level information and service data that adequately reflects trans and gender-diverse people. Ideally the whole Shire should be a safe space for our trans and gender diverse community. </p><p></p><p>If elected to council, do you commit to ensure trans and gender diverse people receive equal opportunities, have access to safe spaces, and effective healthcare services? </p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>I am committed to achieving equality for every person in the LGBTIQA+ community. I’m committed to working towards an inclusive and equitable society. Everyone has the right to safe spaces, and effective healthcare services and equal outcomes. LGBTIQA+ people continue to face discrimination which makes these ever more important.</p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Not one candidate in the Mt Alexander Shire elected in 2020, fully supported the ‘Rainbow Local Government’ pledge. Some candidates did not even take part in the survey. </p><p>Will you vow to take the ‘Rainbow Pledge’ put forth by The Victorian Pride Lobby, and support the priorities of LGBTQIA+ people within our community?</p><p></p><p>Information about the Pledge and Survey can be found here: https://rainbowvotes.com.au/ </p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>I have very happily taken the Rainbow Pledge and will take the lead from our LGBTQIA+ steering groups, committees and community on any additional practical measures. </p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Castlemaine Safe Space" style="font-size: 25px; color: #833; margin-top: 20px;">Castlemaine Safe Space</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href"https://www.castlemainesafespace.org/" target="_blank" rel="noopener noreferrer">Castlemaine Safe Space</a> is a non-clinical drop­ in Space for anyone in emotional distress, or experiencing loneliness or suicidal thoughts. We are community designed and led, and staffed by trained peer volunteers with lived experience.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Would you support and advocate for future funding to ensure the sustainability of Castlemaine Safe Space, and if so, how would you do this?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>Castlemaine Safe Space provides a valuable community service. I would take the lead from Castlemaine Safe Space and community advocates and support any reasonable measure to ensure its sustainability. </p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Would you prioritise emergency housing for people experiencing homelessness? If so, how would you do this?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>I would take the lead of experts such as My Home Network on this. It is clear our community needs strong action to address this issue and I would support any practical measure which would help people experiencing homelessness. </p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Castlemaine School Strike 4 Climate" style="font-size: 25px; color: #833; margin-top: 20px;">Castlemaine School Strike 4 Climate</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>School Strike For Climate is a network of school students united by our concern for the future of our planet and all life on it.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>What role do you think that Council can play in fighting the climate crisis? And what do you think are its limitations?</p></i></div>
+                  <div class="answer">
+                    It is very important that Council do everything it can to minimise its environmental impacts. It also can and should play an important role in modelling and advocating for broader positive change across the community. We can reduce carbon emissions, we can promote carbon capturing ecosystems, we can reach better waste and recycling outcomes, we can build better homes and more sustainable homes and communities. Council should be front and centre in all these.
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Would you advocate at a State and Federal level to take stronger climate action if you were elected?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>Councils are the closest tier of government to communities. For this reason they are best-placed to understand the needs and opinions of their community and play an incredibly important role in representing the interests of their community and advocating for positive change.</p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Councils have a long history of influencing state and federal government issues, and they are uniquely placed to advocate on behalf of the communities they represent. </p><p></p><p>With this in mind, what is your view on the current Council’s decision in early 2024 to adopt a policy which allows Council to abstain from international, national, and state issues, particularly on issues that impact members of our community?</p></i></div>
+                  <div class="answer">
+                    Where councils can have a positive impact on national and international issues, and there is significant community backing for it to do so, it is important that they do.
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Central Victoria Climate Action" style="font-size: 25px; color: #833; margin-top: 20px;">Central Victoria Climate Action</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://www.facebook.com/centralvictoriaclimateaction" target="_blank" rel="noopener noreferrer">Central Victoria Climate Action</a> is a grassroots community group made up of climate concerned citizens working together for climate action.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Given that MASC declared a climate emergency and the UN peak scientific climate body the IPCC said in March 2023 that there can be no new fossil fuel projects if we are to have even a chance of aligning with Paris, will you support council taking action to change its default super fund for its employees to an ethical fund that has ruled out investing in companies doing new fossil fuel projects?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>I will support any practical measure that brings us in line with our commitments to the environment and to mitigate the effects of climate change. This includes measures such as changing Council employees’ default super fund. </p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>What are your attitudes to Forest fire management Victoria's flawed policy on planned burning in Victorian forests? </p><p>For more information, check here:</p><p>Fire: paying attention to the detail | Friends of the Box-Ironbark Forests</p><p>fobif.org.au</p><p>and : </p><p>https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683</p></i></div>
+                  <div class="answer">
+                    I will support any practical endeavour to improve how we manage our land - especially when this can improve safety and biodiversity outcomes for our shire. We should be constantly reviewing our practices against current data and evidence and updating our practices accordingly. As the government body closest to the ground, Council can and should be monitoring the programs of State and Federal agencies to ensure best practices are being followed in our shire. I will support a review of the impacts of planned burning in our shire so the council can advocate and respond effectively.
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Mount Alexander Shire Council declared a climate emergency in 2019 with the aim of reaching zero carbon emissions by 2030. </p><p></p><p>If you are elected, will you ensure that all of Council's financial transactions and commitments are transparent in regard to climate and First Nations justice, human rights and the environment? If so, how will you do this?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>As a member of the Greens I am committed to transparency and accountability in government. This is especially important around issues of climate and First Nations justice, human rights and the environment. I will push for any practical measure to uphold these principles and and will take the lead from organisations and community members as to any practical ways these could be achieved.</p><p></p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Free Palestine Central Victoria" style="font-size: 25px; color: #833; margin-top: 20px;">Free Palestine Central Victoria</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://www.facebook.com/freepalestinecentralvic" target="_blank" rel="noopener noreferrer">Free Palestine Central Victoria</a> is a Castlemaine-based community organising + action group, in solidarity with Palestine.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>If elected as a local Councillor at the October 2024 Local Government Elections, do you commit to support a Council Resolution denouncing Israel’s Occupation, Apartheid, and Genocidal War on Palestine?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>Where there are significant divisions in our community, Council can and should be leading the necessary advocacy to heal our communities' fractures. Silence on important issues is not helpful and can deepen rifts and the marginalisation of community members and groups.</p><p></p><p>Council can and should take principled stances against apartheid, genocide and human rights abuses - including denouncing Israel’s occupation of Palestinian territories, while being sensitive to and inclusive of all community members. I will support any practical action in this regard. </p><p></p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>If elected as a local Councillor at the October 2024 Local Government Elections, do you commit to ensure the Council adopts an active and consistent position on human rights and demonstrates this by formally committing to Cultural Diversity and Inclusion within the first two years?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>Upholding human rights, particularly Cultural Diversity and Inclusion is of paramount importance - especially as we work towards an equitable society. </p><p></p><p>I will commit to any practical measure which will promote and work towards cultural diversity and inclusion. Where there are systemic barriers to this or acute needs, I will take the lead from community groups and constituents to ensure issues are being addressed.</p><p></p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>If elected as a local Councillor at the October 2024 Local Government Elections, do you commit to update the Council's procurement and investment policies to avoid and divest from companies that support or profit from internationally recognised human rights abuses, and increase the transparency of Council’s financial transactions and commitments?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>Council should not be doing business with companies that profit from human rights abuses. I will support updating the Council's procurement and investment policies wherever practical and effective.</p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Mount Alexander Shire Accommodation and Respite Group (MASARG)" style="font-size: 25px; color: #833; margin-top: 20px;">Mount Alexander Shire Accommodation and Respite Group (MASARG)</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>MASARG is an independent, non political, not for profit charitable organisation working with people with intellectual disabilities and their carers in Castlemaine and surrounds. MASARG built a much needed respite house in Melissa CRT, McKenzies Hill Castlemaine that was opened in 2016. MASARG are now advocating for the right for people with an intellectual disability to have safe, secure and affordable long term housing in Castlemaine.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Do you acknowledge that the needs of people with disabilities, and particularly those with intellectual disabilities, are different to others and how will this be considered in decisions about social and affordable housing?</p></i></div>
+                  <div class="answer">
+                    Yes, absolutely. State and Federal Governments are failing Vicorians on public and social housing, including those for people with disabilities. I will be pushing for the council to advocate strongly for our State and Federal Governments to build the public and social housing we need. I will also be pushing for council-initiated affordable housing projects which cater for specific needs of the community, including people with disabilities. 
+
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Mount Alexander Shire Disability Advocacy Group (MASDAG)" style="font-size: 25px; color: #833; margin-top: 20px;">Mount Alexander Shire Disability Advocacy Group (MASDAG)</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://www.mountalexander.vic.gov.au/Community-and-Wellbeing/Community-directory/Mount-Alexander-Shire-Disability-Advocacy-Group-MASDAG" target="_blank" rel="noopener noreferrer">Mount Alexander Shire Disability Advocacy Group (MASDAG)</a> is an independent volunteer advocate proudly auspiced by Castlemaine Community House. Our aim is to remove barriers and promote systemic change that supports equitable social participation for people with the wide range of disabilities in Mount Alexander Shire, their families and friends.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Are you aware of the Mount Alexander Disability and Inclusion Action Plan?  </p><p>Would you fully support all aspects of accessibility in the shire as outlined in this plan - removing barriers for employment, the built environment, public spaces including footpaths and toilets, transport, etc.?</p></i></div>
+                  <div class="answer">
+                    Yes - I will support any practical measure which will make our shire more accessible. Upholding prior commitments such as those outlined in the Mount Alexander Disability and Inclusion Action Plan should be the first step in improving accessibility in our shire. 
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="My Home Network" style="font-size: 25px; color: #833; margin-top: 20px;">My Home Network</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://dhelkayahealth.org.au/my-home-network/" target="_blank" rel="noopener noreferrer">My Home Network</a> is a local network made up of local people with lived experience of housing crisis and homelessness, community members with diverse expertise and community and government organisations. The network believes that everyone has a right to safe, affordable, secure, sustainable and appropriate housing that recognises their place in and connections to Community and Country.</p><p></p><p>Current work includes that of the  Homeshare community, tiny homes on wheels, tenants rights working group, vacant dwellings and advocacy working groups and rough sleeper action group and advocating for a Solar bank to ensure equitable access for all community members to affordable renewable energy.</p><p></p><p>The My Home Network works closely with Mount Alexander Shire Council across various departments and with the permanent full time housing solutions broker Clare Richards.</p><p></p><p>We support Council in their work to address the housing crisis -see Let's talk about affordable housing | Shape Mount Alexander which is essentially about bringing diverse social housing to Mount Alexander Shire (we need 600 more social housing units) and setting up a Mount Alexander Charitable  Affordable Housing Trust (MAAHT) .</p><p></p><p>They are also in the process of employing a Homelessness coordinator who will scope, support and coordinate formal and informal Homelessness supports in the Shire.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>If elected, would you join the My Home Network (MHN) and support our work?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>MHN provides an invaluable service to our community and we are lucky to have such dedicated advocates and organisations in our shire. I look forward to working with them and supporting their important initiatives.</p><p></p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Would you support the improved integration of housing across different departments within Council?</p></i></div>
+                  <div class="answer">
+                    <p></p><p>I would support any practical measure to improve the delivery of housing and council's administration of housing solutions.</p><p></p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Would you support MHN’s advocacy to Council to improve the Tiny Homes On Wheels (THOW) local law in having nationally approved onsite waste management systems as an option (currently waste management has to be off site) and allowing a financial exchange between the THOW owner or occupier and land owner?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>This presents a significant solution for some of our community members most affected by our housing affordability crisis. It should be supported and expanded in any practical way, while mitigating environmental and safety impacts.</p><p></p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Would you support MHN’s advocacy to Council to engage with the Shire’s residents to encourage the release of the over 1000 vacant dwellings (this doesn’t include primary and secondary Air BnBs) in our Shire as affordable rentals or transition housing?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>The lack of affordable housing in our shire is pushing young people and essential workers out of our shire. This is having negative impacts on families and our essential services, which are struggling to find workers. Council needs to be doing everything it can to make housing more affordable. Releasing vacant dwellings is an important step, as is promoting housing diversity in development, advocating for public and social housing and collaborating with housing organisations to build new affordable housing. </p><p></p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Rural Australians for Refugees - Castlemaine" style="font-size: 25px; color: #833; margin-top: 20px;">Rural Australians for Refugees - Castlemaine</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>Rural Australians for Refugees Castlemaine is a grassroots, volunteer-led community group who are united in supporting a compassionate approach towards refugees and people seeking asylum.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>In 2014 Mount Alexander Shire made a statement of commitment to being a Refugee Welcome Zone. Council, in conjunction with Rural Australians for Refugees Castlemaine and Loddon Campaspe Multicultural Services, developed an action plan for the years 2018-2021.</p><p></p><p>Would you support re-stating the commitment declaring Mount Alexander Shire a Refugee Welcome Zone and advocate for a review of the action plan?</p></i></div>
+                  <div class="answer">
+                    <p><b>Yes</b></p><p>The Australian Greens believe that Australia's cultural, ethnic and linguistic diversity should be celebrated for greatly enriching our society and economy and that refugees be treated with dignity. Local governments are best placed to ensure welcoming, safe and inclusive interactions with services and local government functions.</p><p>As this document has lapsed, the Council should, as a priority, review this plan and restate its commitments. This would ensure the good work already done in this area is carried forward.</p><p></p>
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>What would you do to welcome refugees and promote inclusiveness and acceptance of cultural diversity in the Shire?</p></i></div>
+                  <div class="answer">
+                    I will push for Council to review its progress towards the previously committed Action Plan, and consult with local advocacy groups to work out the best way for Council to welcome refugees and promote inclusiveness and acceptance of cultural diversity in the shire.
+
+                  </div>
+                </div>
+                <div class="section">
+                  <div id="Young People of Mount Alexander Shire" style="font-size: 25px; color: #833; margin-top: 20px;">Young People of Mount Alexander Shire</div>
+                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
+                              padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>Billy Lister - Young Citizen of the Year 2022, representative of Mount Alexander Shire Youth Advisory Group and Castlemaine Secondary College Student representative council canvassed young people in the Mount Alexander Shire to present a series of questions for the candidates in the Mount Alexander Shire local council election.</p></div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>The 2023-2026 Mount Alexander Shire Middle Years Plan was adopted last year, how would you ensure that those recommendations are implemented and delivered efficiently?</p></i></div>
+                  <div class="answer">
+                    I will liaise and seek feedback from middle years children and families and Council executives to ascertain Council’s progress towards the middle years priority areas. 
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Young people across the world, country and shire are facing profound challenges when it comes to mental health and wellbeing. Council's Pillar of - a healthy, connected and inclusive community - strongly aligns with this issue. How will you ensure that this Pillar can promote the future and mental health of young people's mental health in the shire? </p></i></div>
+                  <div class="answer">
+                    Mount Alexander Greens have identified a significant services gap in youth mental health in our shire. I will push to expand youth services and activities and seek for Council to advocate to State and Federal governments to bring more services to our shire. I’m also aware that housing and cost-of-living stress can have a significant negative impact on families. In this situation kids can be significantly affected. I will push to make housing in our shire more affordable, including for young people, and to address cost of living through improving local services and advocating to State and Federal governments for the systemic change we need. 
+
+                  </div>
+                </div>
+                <div class="section">
+                  <div style="margin-left: 18px;"><i><p>Council's Pillar of - a resilient and growing local economy - also includes a community that is inclusive and connected (2021-2025 council plan). How will you as a councillor listen to the voices of young people and ensure they are connected to council and their community? </p></i></div>
+                  <div class="answer">
+                    Young people are the future of our shire and our community - literally. This should be front of mind in all Council’s decision making especially around things like climate change, housing and cost of living, as they are the ones who will be most affected. I will seek feedback from Bulortj Children and Youth Network and the Youth Advisory Group on any relevant topics. I also welcome  feedback and input from young constituents, families and representatives, who can reach me any time by emailing lucas.maddock@vic.greens.org.au. 
+                  </div>
+                </div>
+          </div>
+          <div class="section_button" id="section_button_right" style="display: flex; flex-direction: column; justify-content: center">></div>
+        </div>
+        -->
         <div id="questions-container" style="flex: 2">
             <br>
             <div id="Castlemaine Commons" style="font-size: 25px; color: #833; margin-top: 20px;">Castlemaine Commons</div>
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>Formed during the early stages of COVID-19, the Castlemaine Commons collective works responsively and locally hosting events & discussions -  fostering new ways of communication, community connection, sense making, catalysing action and creating collective future visions. </p><p></p><p>We are also part of the newly formed First Nations Solidarity Network - Liyanganyuk Banyul. As non-Indigenous community members we understand it is our responsibility to walk together in right relationship with a commitment to truth telling. We know that when First Peoples are supported to thrive, we all thrive.</p></div>
               <div style="margin-left: 18px;"><i><p>Since the referendum we have seen an increase in racism in schools and across our community. How will you address this division and ensure there is accountability and transparency about the learning and truth telling that is needed? </p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 Council can and should lead the change we need to address racism in our community. I'm committed to First Nations justice, in which learning and truth telling are vital. Schools and our education institutions must provide culturally safe and appropriate learning environments for all, especially First Nations people. First Nations people are best placed to direct and lead what this looks like. I'm committed to working with First Nations groups to understand the best way to address racism and promote inclusiveness. Where state and Federal institutions fail our community, including in schools, Council should be playing a key role in articulating shortfalls and advocating for solutions.
 
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Would you support offering and increasing professional development for all Council staff in cultural awareness and anti-racism, and making this a requirement of both Councillors and the Executive team within Council? </p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>Council has a responsibility to provide safe and inclusive work environments. They also have a responsibility to model good leadership to our broader community. Cultural awareness training is key to understanding the often unconscious privileges, prejudices, unconscious biases, which is vital for a racism-free workplace. </p>
+                <p><b>Yes</b></p><p>Council has a responsibility to provide safe and inclusive work environments. They also have a responsibility to model good leadership to our broader community. Cultural awareness training is key to understanding the often unconscious privileges, prejudices, unconscious biases, which is vital for a racism-free workplace. </p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Djaara (Dja Dja Wurrung Clans Aboriginal Corporation) and Nalderun Education Aboriginal Organisation provide an important contribution to this community. Will you commit to strengthening the collaborative relationships and support that has been built between MASC and these organisations as well as with other local First Nations led enterprises and organisations? </p><p>This may be through increasing funding from MASC for programs run by Nalderun Education Aboriginal Organisation, such as the Me-Mandook Bush Tucker Education Place, increasing advocacy and in-kind support, increased partnerships and meaningful relationship building.</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>These relationships are vital and Council should always be working towards strengthening them.</p>
+                <p><b>Yes</b></p><p>These relationships are vital and Council should always be working towards strengthening them.</p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>As you are settling into your Council role later this year, the Victorian Treaty process will be entering into an important stage of Statewide Treaty negotiations, with local Traditional Owner Treaties commencing soon after. </p><p>What role do you envision MASC playing in the Treaty process, and how can you support local Treaty negotiations in partnership with local Traditional Owners, Elders and First Nations Leaders? </p><p>Preparing MASC for local Traditional Owner Treaty negotiations may include, for example, development of a discussion paper on how Council can engage with the Treaty Negotiation Framework.</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 I will always take the lead from traditional Owners, Elders and First Nations Leaders as to the best way to advance the Victorian Treaty process. I will support any practical measure which will advance this process and support First Nations Justice. 
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Will you write to the First Peoples’ Assembly of Victoria and the Treaty Authority, the independent body that oversees Treaty-making in Victoria, to express the Shire’s desire to be party to future Traditional Owner Treaties?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>I will support any practical initiative from First Nations groups which will promote and further efforts towards Traditional Owner Treaties. I will work with Council and Councillors towards supporting Traditional Owner Treaties and advocating to First Peoples’ Assembly of Victoria and the Treaty Authority as such.</p>
+                <p><b>Yes</b></p><p>I will support any practical initiative from First Nations groups which will promote and further efforts towards Traditional Owner Treaties. I will work with Council and Councillors towards supporting Traditional Owner Treaties and advocating to First Peoples’ Assembly of Victoria and the Treaty Authority as such.</p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
             <br>
@@ -171,25 +460,16 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><p><a href="https://cch.org.au/" target="_blank" rel="noopener noreferrer">Castlemaine Community House</a> (CCH) provides programs and activities contributing to community development and supporting individuals and groups within the local community.</p></p><p><p>CCH is:</p><ul><li>a learning centre</li><li>a meeting place</li><li>a not-for-profit enterprise</li><li>a drop-in centre</li><li>a supportive, welcoming place</li><li>an information network</li></ul></p></div>
               <div style="margin-left: 18px;"><i><p>How will you maintain strong connections and ensure you keep in touch with your constituents?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 Meeting and connecting with the communities of Moonlight Creek has been the most enjoyable part of my campaign. I love talking to people, hearing about their experiences and ideas, and workshopping the issues that matter most to them. I will continue to make myself available through regular, formal and informal listening posts, and will continue to knock on community doors to canvas feedback on the issues that matter most to this community. I also welcome  feedback and input from all constituents and groups at any time by emailing lucas.maddock@vic.greens.org.au. 
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>How effective are you at collaborating with people who may have different perspectives and values?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 As an adult-educator in TAFEs, universities and community organisations, I have worked effectively with very broad cross-sections of our society. I have always recognised and appreciated the differing perspectives in any teaching groups and have been committed to listening to and understanding them. I believe strongly in the power of respectful dialogue and communication to reach consensus, even where there may be significant differences. I look forward to bringing this into the Councillor role.
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>In your view, what contributes to a resilient community, and how can the council support that?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 A diverse, equitable and healthy community is a resilient community. Council can support diversity by ensuring inclusiveness, most importantly in decision making roles. It can promote equitable outcomes by adjusting its operations in recognition of the differing abilities and privileges of our community members. Council can promote healthy communities by helping to address housing and cost of living stress, providing vital services, and promoting culture and recreation. 
               </div>
@@ -199,27 +479,18 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://castlemainepride.org.au/" target="_blank" rel="noopener noreferrer">Castlemaine Pride</a> is a volunteer-led community group that organises the Pride Festival each year. The community grew out of the local grassroots movement in support of marriage equality. They continue to support and connect the local LGBTQIA+ community and advocate for the safety and inclusion of LGBTQIA+ people in the Mount Alexander Shire.</p></div>
               <div style="margin-left: 18px;"><i><p>Things should be getting better for LGBTQIA+ young people but, alarmingly, in 2024 discrimination and hate speech is on the rise. 66% of LGBTQIA+ youth in Australia still experience discrimination just for being who they are. </p><p></p><p>If elected to council, do you commit to engaging with and supporting LGBTQIA+ youth to create a Discrimination Action Plan in our Shire?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>Our council should be doing everything it can to work towards a discrimination-free shire. I will support any practical measure to work towards this. </p>
+                <p><b>Yes</b></p><p>Our council should be doing everything it can to work towards a discrimination-free shire. I will support any practical measure to work towards this. </p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>A key gap in Australia is the lack of population-level information and service data that adequately reflects trans and gender-diverse people. Ideally the whole Shire should be a safe space for our trans and gender diverse community. </p><p></p><p>If elected to council, do you commit to ensure trans and gender diverse people receive equal opportunities, have access to safe spaces, and effective healthcare services? </p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>I am committed to achieving equality for every person in the LGBTIQA+ community. I’m committed to working towards an inclusive and equitable society. Everyone has the right to safe spaces, and effective healthcare services and equal outcomes. LGBTIQA+ people continue to face discrimination which makes these ever more important.</p>
+                <p><b>Yes</b></p><p>I am committed to achieving equality for every person in the LGBTIQA+ community. I’m committed to working towards an inclusive and equitable society. Everyone has the right to safe spaces, and effective healthcare services and equal outcomes. LGBTIQA+ people continue to face discrimination which makes these ever more important.</p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Not one candidate in the Mt Alexander Shire elected in 2020, fully supported the ‘Rainbow Local Government’ pledge. Some candidates did not even take part in the survey. </p><p>Will you vow to take the ‘Rainbow Pledge’ put forth by The Victorian Pride Lobby, and support the priorities of LGBTQIA+ people within our community?</p><p></p><p>Information about the Pledge and Survey can be found here: https://rainbowvotes.com.au/ </p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>I have very happily taken the Rainbow Pledge and will take the lead from our LGBTQIA+ steering groups, committees and community on any additional practical measures. </p>
+                <p><b>Yes</b></p><p>I have very happily taken the Rainbow Pledge and will take the lead from our LGBTQIA+ steering groups, committees and community on any additional practical measures. </p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
             <br>
@@ -227,19 +498,13 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href"https://www.castlemainesafespace.org/" target="_blank" rel="noopener noreferrer">Castlemaine Safe Space</a> is a non-clinical drop­ in Space for anyone in emotional distress, or experiencing loneliness or suicidal thoughts. We are community designed and led, and staffed by trained peer volunteers with lived experience.</p></div>
               <div style="margin-left: 18px;"><i><p>Would you support and advocate for future funding to ensure the sustainability of Castlemaine Safe Space, and if so, how would you do this?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>Castlemaine Safe Space provides a valuable community service. I would take the lead from Castlemaine Safe Space and community advocates and support any reasonable measure to ensure its sustainability. </p>
+                <p><b>Yes</b></p><p>Castlemaine Safe Space provides a valuable community service. I would take the lead from Castlemaine Safe Space and community advocates and support any reasonable measure to ensure its sustainability. </p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Would you prioritise emergency housing for people experiencing homelessness? If so, how would you do this?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>I would take the lead of experts such as My Home Network on this. It is clear our community needs strong action to address this issue and I would support any practical measure which would help people experiencing homelessness. </p>
+                <p><b>Yes</b></p><p>I would take the lead of experts such as My Home Network on this. It is clear our community needs strong action to address this issue and I would support any practical measure which would help people experiencing homelessness. </p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
             <br>
@@ -247,25 +512,16 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>School Strike For Climate is a network of school students united by our concern for the future of our planet and all life on it.</p></div>
               <div style="margin-left: 18px;"><i><p>What role do you think that Council can play in fighting the climate crisis? And what do you think are its limitations?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 It is very important that Council do everything it can to minimise its environmental impacts. It also can and should play an important role in modelling and advocating for broader positive change across the community. We can reduce carbon emissions, we can promote carbon capturing ecosystems, we can reach better waste and recycling outcomes, we can build better homes and more sustainable homes and communities. Council should be front and centre in all these.
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Would you advocate at a State and Federal level to take stronger climate action if you were elected?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>Councils are the closest tier of government to communities. For this reason they are best-placed to understand the needs and opinions of their community and play an incredibly important role in representing the interests of their community and advocating for positive change.</p>
+                <p><b>Yes</b></p><p>Councils are the closest tier of government to communities. For this reason they are best-placed to understand the needs and opinions of their community and play an incredibly important role in representing the interests of their community and advocating for positive change.</p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Councils have a long history of influencing state and federal government issues, and they are uniquely placed to advocate on behalf of the communities they represent. </p><p></p><p>With this in mind, what is your view on the current Council’s decision in early 2024 to adopt a policy which allows Council to abstain from international, national, and state issues, particularly on issues that impact members of our community?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 Where councils can have a positive impact on national and international issues, and there is significant community backing for it to do so, it is important that they do.
               </div>
@@ -275,27 +531,18 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://www.facebook.com/centralvictoriaclimateaction" target="_blank" rel="noopener noreferrer">Central Victoria Climate Action</a> is a grassroots community group made up of climate concerned citizens working together for climate action.</p></div>
               <div style="margin-left: 18px;"><i><p>Given that MASC declared a climate emergency and the UN peak scientific climate body the IPCC said in March 2023 that there can be no new fossil fuel projects if we are to have even a chance of aligning with Paris, will you support council taking action to change its default super fund for its employees to an ethical fund that has ruled out investing in companies doing new fossil fuel projects?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>I will support any practical measure that brings us in line with our commitments to the environment and to mitigate the effects of climate change. This includes measures such as changing Council employees’ default super fund. </p>
+                <p><b>Yes</b></p><p>I will support any practical measure that brings us in line with our commitments to the environment and to mitigate the effects of climate change. This includes measures such as changing Council employees’ default super fund. </p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>What are your attitudes to Forest fire management Victoria's flawed policy on planned burning in Victorian forests? </p><p>For more information, check here:</p><p>Fire: paying attention to the detail | Friends of the Box-Ironbark Forests</p><p>fobif.org.au</p><p>and : </p><p>https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 I will support any practical endeavour to improve how we manage our land - especially when this can improve safety and biodiversity outcomes for our shire. We should be constantly reviewing our practices against current data and evidence and updating our practices accordingly. As the government body closest to the ground, Council can and should be monitoring the programs of State and Federal agencies to ensure best practices are being followed in our shire. I will support a review of the impacts of planned burning in our shire so the council can advocate and respond effectively.
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Mount Alexander Shire Council declared a climate emergency in 2019 with the aim of reaching zero carbon emissions by 2030. </p><p></p><p>If you are elected, will you ensure that all of Council's financial transactions and commitments are transparent in regard to climate and First Nations justice, human rights and the environment? If so, how will you do this?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>As a member of the Greens I am committed to transparency and accountability in government. This is especially important around issues of climate and First Nations justice, human rights and the environment. I will push for any practical measure to uphold these principles and and will take the lead from organisations and community members as to any practical ways these could be achieved.</p><p></p>
+                <p><b>Yes</b></p><p>As a member of the Greens I am committed to transparency and accountability in government. This is especially important around issues of climate and First Nations justice, human rights and the environment. I will push for any practical measure to uphold these principles and and will take the lead from organisations and community members as to any practical ways these could be achieved.</p><p></p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
             <br>
@@ -303,27 +550,18 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://www.facebook.com/freepalestinecentralvic" target="_blank" rel="noopener noreferrer">Free Palestine Central Victoria</a> is a Castlemaine-based community organising + action group, in solidarity with Palestine.</p></div>
               <div style="margin-left: 18px;"><i><p>If elected as a local Councillor at the October 2024 Local Government Elections, do you commit to support a Council Resolution denouncing Israel’s Occupation, Apartheid, and Genocidal War on Palestine?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>Where there are significant divisions in our community, Council can and should be leading the necessary advocacy to heal our communities' fractures. Silence on important issues is not helpful and can deepen rifts and the marginalisation of community members and groups.</p><p></p><p>Council can and should take principled stances against apartheid, genocide and human rights abuses - including denouncing Israel’s occupation of Palestinian territories, while being sensitive to and inclusive of all community members. I will support any practical action in this regard. </p><p></p>
+                <p><b>Yes</b></p><p>Where there are significant divisions in our community, Council can and should be leading the necessary advocacy to heal our communities' fractures. Silence on important issues is not helpful and can deepen rifts and the marginalisation of community members and groups.</p><p></p><p>Council can and should take principled stances against apartheid, genocide and human rights abuses - including denouncing Israel’s occupation of Palestinian territories, while being sensitive to and inclusive of all community members. I will support any practical action in this regard. </p><p></p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>If elected as a local Councillor at the October 2024 Local Government Elections, do you commit to ensure the Council adopts an active and consistent position on human rights and demonstrates this by formally committing to Cultural Diversity and Inclusion within the first two years?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>Upholding human rights, particularly Cultural Diversity and Inclusion is of paramount importance - especially as we work towards an equitable society. </p><p></p><p>I will commit to any practical measure which will promote and work towards cultural diversity and inclusion. Where there are systemic barriers to this or acute needs, I will take the lead from community groups and constituents to ensure issues are being addressed.</p><p></p>
+                <p><b>Yes</b></p><p>Upholding human rights, particularly Cultural Diversity and Inclusion is of paramount importance - especially as we work towards an equitable society. </p><p></p><p>I will commit to any practical measure which will promote and work towards cultural diversity and inclusion. Where there are systemic barriers to this or acute needs, I will take the lead from community groups and constituents to ensure issues are being addressed.</p><p></p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>If elected as a local Councillor at the October 2024 Local Government Elections, do you commit to update the Council's procurement and investment policies to avoid and divest from companies that support or profit from internationally recognised human rights abuses, and increase the transparency of Council’s financial transactions and commitments?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>Council should not be doing business with companies that profit from human rights abuses. I will support updating the Council's procurement and investment policies wherever practical and effective.</p>
+                <p><b>Yes</b></p><p>Council should not be doing business with companies that profit from human rights abuses. I will support updating the Council's procurement and investment policies wherever practical and effective.</p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
             <br>
@@ -331,9 +569,6 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>MASARG is an independent, non political, not for profit charitable organisation working with people with intellectual disabilities and their carers in Castlemaine and surrounds. MASARG built a much needed respite house in Melissa CRT, McKenzies Hill Castlemaine that was opened in 2016. MASARG are now advocating for the right for people with an intellectual disability to have safe, secure and affordable long term housing in Castlemaine.</p></div>
               <div style="margin-left: 18px;"><i><p>Do you acknowledge that the needs of people with disabilities, and particularly those with intellectual disabilities, are different to others and how will this be considered in decisions about social and affordable housing?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 Yes, absolutely. State and Federal Governments are failing Vicorians on public and social housing, including those for people with disabilities. I will be pushing for the council to advocate strongly for our State and Federal Governments to build the public and social housing we need. I will also be pushing for council-initiated affordable housing projects which cater for specific needs of the community, including people with disabilities. 
 
@@ -344,9 +579,6 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://www.mountalexander.vic.gov.au/Community-and-Wellbeing/Community-directory/Mount-Alexander-Shire-Disability-Advocacy-Group-MASDAG" target="_blank" rel="noopener noreferrer">Mount Alexander Shire Disability Advocacy Group (MASDAG)</a> is an independent volunteer advocate proudly auspiced by Castlemaine Community House. Our aim is to remove barriers and promote systemic change that supports equitable social participation for people with the wide range of disabilities in Mount Alexander Shire, their families and friends.</p></div>
               <div style="margin-left: 18px;"><i><p>Are you aware of the Mount Alexander Disability and Inclusion Action Plan?  </p><p>Would you fully support all aspects of accessibility in the shire as outlined in this plan - removing barriers for employment, the built environment, public spaces including footpaths and toilets, transport, etc.?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 Yes - I will support any practical measure which will make our shire more accessible. Upholding prior commitments such as those outlined in the Mount Alexander Disability and Inclusion Action Plan should be the first step in improving accessibility in our shire. 
               </div>
@@ -356,35 +588,23 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p><a href="https://dhelkayahealth.org.au/my-home-network/" target="_blank" rel="noopener noreferrer">My Home Network</a> is a local network made up of local people with lived experience of housing crisis and homelessness, community members with diverse expertise and community and government organisations. The network believes that everyone has a right to safe, affordable, secure, sustainable and appropriate housing that recognises their place in and connections to Community and Country.</p><p></p><p>Current work includes that of the  Homeshare community, tiny homes on wheels, tenants rights working group, vacant dwellings and advocacy working groups and rough sleeper action group and advocating for a Solar bank to ensure equitable access for all community members to affordable renewable energy.</p><p></p><p>The My Home Network works closely with Mount Alexander Shire Council across various departments and with the permanent full time housing solutions broker Clare Richards.</p><p></p><p>We support Council in their work to address the housing crisis -see Let's talk about affordable housing | Shape Mount Alexander which is essentially about bringing diverse social housing to Mount Alexander Shire (we need 600 more social housing units) and setting up a Mount Alexander Charitable  Affordable Housing Trust (MAAHT) .</p><p></p><p>They are also in the process of employing a Homelessness coordinator who will scope, support and coordinate formal and informal Homelessness supports in the Shire.</p></div>
               <div style="margin-left: 18px;"><i><p>If elected, would you join the My Home Network (MHN) and support our work?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>MHN provides an invaluable service to our community and we are lucky to have such dedicated advocates and organisations in our shire. I look forward to working with them and supporting their important initiatives.</p><p></p>
+                <p><b>Yes</b></p><p>MHN provides an invaluable service to our community and we are lucky to have such dedicated advocates and organisations in our shire. I look forward to working with them and supporting their important initiatives.</p><p></p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Would you support the improved integration of housing across different departments within Council?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <p></p>
-              </div>
               <div class="answer">
-                <p>I would support any practical measure to improve the delivery of housing and council's administration of housing solutions.</p><p></p>
+                <p></p><p>I would support any practical measure to improve the delivery of housing and council's administration of housing solutions.</p><p></p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Would you support MHN’s advocacy to Council to improve the Tiny Homes On Wheels (THOW) local law in having nationally approved onsite waste management systems as an option (currently waste management has to be off site) and allowing a financial exchange between the THOW owner or occupier and land owner?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>This presents a significant solution for some of our community members most affected by our housing affordability crisis. It should be supported and expanded in any practical way, while mitigating environmental and safety impacts.</p><p></p>
+                <p><b>Yes</b></p><p>This presents a significant solution for some of our community members most affected by our housing affordability crisis. It should be supported and expanded in any practical way, while mitigating environmental and safety impacts.</p><p></p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Would you support MHN’s advocacy to Council to engage with the Shire’s residents to encourage the release of the over 1000 vacant dwellings (this doesn’t include primary and secondary Air BnBs) in our Shire as affordable rentals or transition housing?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>The lack of affordable housing in our shire is pushing young people and essential workers out of our shire. This is having negative impacts on families and our essential services, which are struggling to find workers. Council needs to be doing everything it can to make housing more affordable. Releasing vacant dwellings is an important step, as is promoting housing diversity in development, advocating for public and social housing and collaborating with housing organisations to build new affordable housing. </p><p></p>
+                <p><b>Yes</b></p><p>The lack of affordable housing in our shire is pushing young people and essential workers out of our shire. This is having negative impacts on families and our essential services, which are struggling to find workers. Council needs to be doing everything it can to make housing more affordable. Releasing vacant dwellings is an important step, as is promoting housing diversity in development, advocating for public and social housing and collaborating with housing organisations to build new affordable housing. </p><p></p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
             <br>
@@ -392,17 +612,11 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>Rural Australians for Refugees Castlemaine is a grassroots, volunteer-led community group who are united in supporting a compassionate approach towards refugees and people seeking asylum.</p></div>
               <div style="margin-left: 18px;"><i><p>In 2014 Mount Alexander Shire made a statement of commitment to being a Refugee Welcome Zone. Council, in conjunction with Rural Australians for Refugees Castlemaine and Loddon Campaspe Multicultural Services, developed an action plan for the years 2018-2021.</p><p></p><p>Would you support re-stating the commitment declaring Mount Alexander Shire a Refugee Welcome Zone and advocate for a review of the action plan?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                <b>Yes</b>
-              </div>
               <div class="answer">
-                <p>The Australian Greens believe that Australia's cultural, ethnic and linguistic diversity should be celebrated for greatly enriching our society and economy and that refugees be treated with dignity. Local governments are best placed to ensure welcoming, safe and inclusive interactions with services and local government functions.</p><p>As this document has lapsed, the Council should, as a priority, review this plan and restate its commitments. This would ensure the good work already done in this area is carried forward.</p><p></p>
+                <p><b>Yes</b></p><p>The Australian Greens believe that Australia's cultural, ethnic and linguistic diversity should be celebrated for greatly enriching our society and economy and that refugees be treated with dignity. Local governments are best placed to ensure welcoming, safe and inclusive interactions with services and local government functions.</p><p>As this document has lapsed, the Council should, as a priority, review this plan and restate its commitments. This would ensure the good work already done in this area is carried forward.</p><p></p>
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>What would you do to welcome refugees and promote inclusiveness and acceptance of cultural diversity in the Shire?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 I will push for Council to review its progress towards the previously committed Action Plan, and consult with local advocacy groups to work out the best way for Council to welcome refugees and promote inclusiveness and acceptance of cultural diversity in the shire.
 
@@ -413,26 +627,17 @@
             <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
                         padding-left: 14px; padding-top: 0; padding-bottom: 0;"><p>Billy Lister - Young Citizen of the Year 2022, representative of Mount Alexander Shire Youth Advisory Group and Castlemaine Secondary College Student representative council canvassed young people in the Mount Alexander Shire to present a series of questions for the candidates in the Mount Alexander Shire local council election.</p></div>
               <div style="margin-left: 18px;"><i><p>The 2023-2026 Mount Alexander Shire Middle Years Plan was adopted last year, how would you ensure that those recommendations are implemented and delivered efficiently?</p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 I will liaise and seek feedback from middle years children and families and Council executives to ascertain Council’s progress towards the middle years priority areas. 
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Young people across the world, country and shire are facing profound challenges when it comes to mental health and wellbeing. Council's Pillar of - a healthy, connected and inclusive community - strongly aligns with this issue. How will you ensure that this Pillar can promote the future and mental health of young people's mental health in the shire? </p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 Mount Alexander Greens have identified a significant services gap in youth mental health in our shire. I will push to expand youth services and activities and seek for Council to advocate to State and Federal governments to bring more services to our shire. I’m also aware that housing and cost-of-living stress can have a significant negative impact on families. In this situation kids can be significantly affected. I will push to make housing in our shire more affordable, including for young people, and to address cost of living through improving local services and advocating to State and Federal governments for the systemic change we need. 
 
               </div>
               <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
               <div style="margin-left: 18px;"><i><p>Council's Pillar of - a resilient and growing local economy - also includes a community that is inclusive and connected (2021-2025 council plan). How will you as a councillor listen to the voices of young people and ensure they are connected to council and their community? </p></i></div>
-              <div class="answer" style="padding: 15px; padding-bottom: 0; margin-left: 33px; margin-bottom: 0px;">
-                
-              </div>
               <div class="answer">
                 Young people are the future of our shire and our community - literally. This should be front of mind in all Council’s decision making especially around things like climate change, housing and cost of living, as they are the ones who will be most affected. I will seek feedback from Bulortj Children and Youth Network and the Youth Advisory Group on any relevant topics. I also welcome  feedback and input from young constituents, families and representatives, who can reach me any time by emailing lucas.maddock@vic.greens.org.au. 
               </div>

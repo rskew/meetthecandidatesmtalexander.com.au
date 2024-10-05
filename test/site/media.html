@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Media</title>
+      <meta name="description" content="Mt Alexander Meet the Candidates">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/png" href="favicon.png">
+  </head>
+  <style>
+  @font-face { font-family: noto-sans; src: url('NotoSans-Light.ttf'); }
+  @font-face { font-family: noto-sans-medium; src: url('NotoSans-Medium.ttf'); }
+  html {
+    font-family: noto-sans;
+    height: 100%;
+  }
+  body, p, h1 {
+    margin: 0px;
+    background-color: "#eee";
+    height: 100%;
+  }
+  .socials-link {
+      margin: 5px;
+  }
+  .socials-icon {
+      width: 20px;
+      height: 20px;
+  }
+  #back {
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  #back:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
+  .video {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (min-width: 1000px) {
+    .video {
+      width: 40vw;
+    }
+  }
+  </style>
+  <script>
+  </script>
+  <body>
+    <div style="background-color: #a8cc53e0; font-weight: 400; text-align: center; padding: 15px;">
+      <div style="font-family: noto-sans-medium; font-size: 24px; padding-bottom: 10px;">Meet the Candidates Mount Alexander 2024</div>
+      <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+        <div style="font-size: 12px">Media from the event</div>
+        <div><a class="socials-link" href="https://www.facebook.com/meetthecandidatesmtalexander" target="_blank" rel="noopener noreferrer">
+            <img class="socials-icon" src="facebook_icon.svg" alt="Facebook link"/></a></div>
+        <div><a class="socials-link" href="https://www.instagram.com/meetthecandidatesmtalex?igsh=M3I3aGIwbDZiYm81" target="_blank" rel="noopener noreferrer">
+            <img class="socials-icon" src="insta_icon.svg" alt="Insta link"/></a></div>
+      </div>
+    </div>
+    <div onclick="history.back()" id="back" style="width: 30px; padding: 5px;">Back</div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="video">
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/D2k3r79VBAA?si=zmidYP0AfBmMRvOu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </body>
+</html> 
