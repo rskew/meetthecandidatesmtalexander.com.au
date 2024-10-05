@@ -7,6 +7,12 @@
       <meta name="description" content="Mt Alexander Meet the Candidates">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="icon" type="image/png" href="favicon.png">
+      {{#wards}}
+        <link rel="prefetch" href="{{link_to}}">
+      {{/wards}}
+      {{#candidates}}
+        <link rel="prefetch" href="candidates/photos/{{picture}}">
+      {{/candidates}}
   </head>
   <style>
   @font-face { font-family: noto-sans; src: url('NotoSans-Light.ttf'); }
@@ -28,14 +34,12 @@
   }
   #map-title {
     font-size: 20px;
-    color: #333;
     font-weight: 400px;
     text-align: center;
     margin-top: 20px;
   }
   #find-your-ward {
     font-size: 12px;
-    color: #333;
     margin-top: 10px;
   }
   .ward-name {
@@ -45,7 +49,7 @@
     margin: 3px;
     border-radius: 2px;
     text-decoration: none;
-    color: #333;
+    color: black;
   }
   .ward {
     cursor: pointer;
@@ -83,7 +87,7 @@
   </script>
   <body>
     <div id="everything-container">
-      <div style="background-color: #a8cc53e0; color: #333; font-weight: 400; text-align: center; padding: 15px;">
+      <div style="background-color: #a8cc53e0; font-weight: 400; text-align: center; padding: 15px;">
         <div style="font-family: noto-sans-medium; font-size: 24px; padding-bottom: 10px;">Meet the Candidates Mount Alexander 2024</div>
         <div style="font-size: 12px">See media from the event
         <a class="socials-link" href="https://www.facebook.com/meetthecandidatesmtalexander" target="_blank" rel="noopener noreferrer">

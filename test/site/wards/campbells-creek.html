@@ -23,8 +23,6 @@
     color: #333;
   }
   .candidate {
-    display: flex;
-    flex-direction: column;
     margin: 20px;
     padding: 20px;
   }
@@ -45,7 +43,6 @@
     #candidate-container {
       display: flex;
       flex-direction: row;
-      height: 100%;
       justify-content: space-around;
     }
     body {
@@ -54,7 +51,6 @@
   }
   #back {
     text-decoration: none;
-    color: #333;
     font-size: 12px;
     cursor: pointer;
   }
@@ -70,17 +66,17 @@
     </div>
     <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center">
       <div id="candidate-container">
-          <a href="../candidates/bill-maltby.html" style="text-decoration: none;">
-            <div class="candidate">
-              <img style="max-width: 400px; max-height: 400px; object-fit: contain" src="../candidates/photos/maltby_150x150.jpg"/>
+          <a href="../candidates/bill-maltby.html" style="text-decoration: none;" draggable=false>
+            <div class="candidate" draggable=false>
+              <img style="width: 400px; object-fit: contain" draggable=false src="../images/bill_maltby.jpg"/>
               <div class="candidate-name">
                 Bill Maltby
               </div>
             </div>
           </a>
-          <a href="../candidates/gavan-thomson.html" style="text-decoration: none;">
-            <div class="candidate">
-              <img style="max-width: 400px; max-height: 400px; object-fit: contain" src="../candidates/photos/gavan_medium_res.jpg"/>
+          <a href="../candidates/gavan-thomson.html" style="text-decoration: none;" draggable=false>
+            <div class="candidate" draggable=false>
+              <img style="width: 400px; object-fit: contain" draggable=false src="../images/gavan_thomson.jpg"/>
               <div class="candidate-name">
                 Gavan Thomson
               </div>

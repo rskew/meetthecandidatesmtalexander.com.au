@@ -71,7 +71,6 @@
   }
   .back {
     text-decoration: none;
-    color: #333;
     font-size: 12px;
   }
   .back:hover {
@@ -85,21 +84,10 @@
     display: none;
   }
   </style>
-  <script>
-    window.onscroll = function (oEvent) {
-      var mydivpos = document.getElementById("organisations").offsetTop;
-      var scrollPos = window.scrollY;
-      if(scrollPos >= mydivpos) {
-        document.getElementById("back-to-top").classList.remove("hidden");
-      } else {
-        document.getElementById("back-to-top").classList.add("hidden");
-      }
-    };
-  </script>
   <body style="display: flex; flex-direction: column; justify-content: center; align-items: center">
     <div onclick="history.back()" class="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
     <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
-    <img max-width="500px" max-height="500px" src="photos/Councillor_T_Cordy.jpg" style="border-radius: 30px; max-width: 500px; max-height: 500px; margin-top: 30px"/>
+    <img width="500px" src="../images/tony_cordy.jpg" style="border-radius: 30px; margin-top: 30px"/>
     <h1 style="font-weight: 400; margin: 15px">Tony Cordy</h1>
     <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Standing for Calder</div>
     <div id="everything-container">

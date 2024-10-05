@@ -5,76 +5,69 @@ ward = "Which Mount Alexander Shire Council Ward are you running for in the 2024
 about_candidate = "Please tell us about yourself, what makes you passionate about the Ward you are standing in, and why you chose to stand."
 about = "Please tell us about yourself, what makes you passionate about the Ward you are standing in, and why you chose to stand."
 
-"uncontested_candidates" = [
-    "Rosalie Hastwell",
-    "Matt Driscoll",
-    "Rosie Annear",
-    "Lucas Maddock",
-    "Toby Heydon",
-]
+contested_wards = ["Calder", "Campbells Creek", "Coliban"]
 
-[candidates."Bill maltby"]
+
+[[candidates]]
+name = "Bill maltby"
 ward = "Campbells Creek"
-photo = "maltby_150x150.jpg"
+picture = "bill_maltby.jpg"
 uncontested = false
 
-[candidates."Gavan Thomson"]
+[[candidates]]
+name = "Gavan Thomson"
 ward = "Campbells Creek"
-photo = "gavan_medium_res.jpg"
+picture = "gavan_thomson.jpg"
 uncontested = false
 
-[candidates."Lucas Maddock"]
+[[candidates]]
+name = "Kelly Ann Blake"
+ward = "Coliban"
+picture = "kelly_ann_blake.jpg"
+uncontested = false
+
+[[candidates]]
+name = "Ken Price "
+ward = "Calder"
+picture = "ken_price.png"
+uncontested = false
+
+[[candidates]]
+name = "Kerrie Allen"
+ward = "Calder"
+picture = "kerrie_allen.jpg"
+uncontested = false
+
+[[candidates]]
+name = "Lucas Maddock"
 ward = "Moonlight Creek"
-photo = "lucas_medium_res.jpg"
+picture = "lucas_maddock.jpg"
 uncontested = true
 
-[candidates."Kerrie Allen"]
-ward = "Calder"
-photo = "Kerrie Allen_JPG_002.jpg"
-uncontested = false
-
-[candidates."Phillip Walker"]
-ward = "Coliban"
-photo = "phil_medium_res.jpeg"
-uncontested = false
-
-[candidates."Ken Price "]
-ward = "Calder"
-photo = "ken_price.png"
-uncontested = false
-
-[candidates."Kelly Ann Blake"]
-ward = "Coliban"
-photo = "kelly_ann_blake_medium_res.jpg"
-uncontested = false
-
-[candidates."Tony Cordy"]
-ward = "Calder"
-photo = "Councillor_T_Cordy.jpg"
-uncontested = false
-didnt_respond = true
-
-[candidates."Toby Heydon"]
-ward = "Forest Creek"
-photo = "toby_heydon.png"
-uncontested = true
-didnt_respond = true
-
-[candidates."Matt Driscoll"]
+[[candidates]]
+name = "Matt Driscoll"
 ward = "Loddon River"
-photo = "mattd.jpg"
+picture = "matt_driscoll.jpg"
 uncontested = true
 didnt_respond = true
 
-[candidates."Max Lesser"]
+[[candidates]]
+name = "Max Lesser"
 ward = "Coliban"
-photo = "max01_medium_res.jpg"
+picture = "max_lesser.jpg"
 uncontested = false
 didnt_respond = true
 
-[candidates."Rosie Annear"]
+[[candidates]]
+name = "Phillip Walker"
+ward = "Coliban"
+picture = "phillip_walker.jpg"
+uncontested = false
+
+[[candidates]]
+name = "Rosie Annear"
 ward = "Barkers Creek"
-photo = "rosie_annear.jpg"
+picture = "rosie_annear.jpg"
 uncontested = true
 statement = """
 I appreciate the time and passion that has gone into the questionnaire, both from the organisers and the community groups represented in it. Please don’t misinterpret my lack of question-by-question responses as a lack of interest or support. I am supportive of these community groups and the issues they raise - housing, mental health, climate, human rights, diversity and inclusion. Many of these issues are at the core of why I ran for Council four years ago, and why I’m running again now.
@@ -86,9 +79,10 @@ Council is a complicated beast, more complex than anything I’ve navigated befo
 I guess what I’m really trying to do here is ask people to trust me a bit. Trust that I care about these issues, that I will support and advocate for them - when I can - and that I will continue to keep community top of mind and front of heart in everything I do.
 """
 
-[candidates."Rosalie Hastwell"]
+[[candidates]]
+name = "Rosalie Hastwell"
 ward = "Tarrengower"
-photo = "rosalie.jpg"
+picture = "rosalie_hastwell.jpg"
 uncontested = true
 statement = """
 Thank you for reaching out with this questionnaire and invitation to participate in the Meet the Candidate event. I appreciate the commitment and care that has gone into developing these opportunities for candidates to demonstrate their positions on a range of issues.
@@ -102,22 +96,20 @@ In line with my commitment to be an open minded candidate and to demonstrate goo
 I am always happy to invite groups and people to contact me and/or Council for a discussion about local issues that fall within my ward and within the remit. I look forward to meeting and working with a wide range of groups across the Shire, over the next four years towards a cohesive, sustainable, fair and resilient community.
 """
 
+[[candidates]]
+name = "Toby Heydon"
+ward = "Forest Creek"
+picture = "toby_heydon.png"
+uncontested = true
+didnt_respond = true
 
-[contested_wards]
-"Calder" = [
-    "Ken Price ",
-    "Kerrie Allen",
-    "Tony Cordy",
-]
-"Campbells Creek" = [
-    "Bill maltby",
-    "Gavan Thomson",
-]
-"Coliban" = [
-    "Kelly Ann Blake",
-    "Max Lesser",
-    "Phillip Walker",
-]
+[[candidates]]
+name = "Tony Cordy"
+ward = "Calder"
+picture = "tony_cordy.jpg"
+uncontested = false
+didnt_respond = true
+
 
 [[organisations]]
 title = "Castlemaine Commons"
