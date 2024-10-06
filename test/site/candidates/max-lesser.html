@@ -61,12 +61,20 @@
     font-size: 15px;
     max-width: 60vw;
   }
+  #questions-by-community-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   @media (min-width: 1000px) {
     #questions-container {
       max-width: 60vw;
     }
     #about {
       max-width: 800px;
+    }
+    #questions-by-community-group {
+      flex-direction: row;
     }
   }
   .back {
@@ -94,6 +102,7 @@
     cursor: pointer;
     font-family: noto-sans-medium;
     font-size: 20px;
+    height: 200px;
   }
   .section_button:hover {
     background-color: #f909;

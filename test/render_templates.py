@@ -6,7 +6,7 @@ import click
 import chevron
 
 
-NO_ANSWER = "(not answered)"
+NO_ANSWER = "<i>(not answered)</i>"
 COMMENT_TYPE = "comment"
 YES_NO_OTHER_TYPE = "yes_no_other"
 
@@ -38,23 +38,27 @@ def munge(data, row_dicts):
                 section["section_index"] = section_index
                 sections.append(section)
                 section_index = section_index + 1
+
+        organisations = [
+            {**org,
+             "blurb": paragraphify(org["blurb"]),
+             "questions": [render_question(question, answers_row)
+                           for question in org["questions"]],
+             "section_index": org_section_indices[org["title"]]}
+            for org in data["organisations"]
+        ]
+        organisations_columns = [{"organisations": organisations[:6]}, {"organisations": organisations[6:]}]
         munged_candidate = {
             "name": fix_typos(candidate["name"]),
             "name_kebab": kebabify(candidate["name"]),
             "ward": candidate["ward"],
             "ward_kebab": kebabify(candidate["ward"]),
             "uncontested": "uncontested" if candidate["uncontested"] else "",
-            "about": paragraphify(about),
+            "about": paragraphify(fix_typos(about)),
             "picture": candidate["picture"],
             "sections": sections,
-            "organisations": [
-                {**org,
-                 "blurb": paragraphify(org["blurb"]),
-                 "questions": [render_question(question, answers_row)
-                               for question in org["questions"]],
-                 "section_index": org_section_indices[org["title"]]}
-                for org in data["organisations"]
-            ] if "didnt_response" not in candidate else [],
+            "organisations_columns": organisations_columns,
+            "organisations": organisations if "didnt_response" not in candidate else [],
         }
         if not candidate["uncontested"]:
             munged_candidate["back_to_ward_link"] = f"../wards/{kebabify(candidate['ward'])}.html"
@@ -83,7 +87,7 @@ def render_answer(question, row):
             yes_no_other = ""
         else:
             yes_no_other = paragraphify(yes_no_other)
-        answer = row.get(question["comment_question"]) or (NO_ANSWER if yes_no_other == "" else "")
+        answer = row.get(question["comment_question"]) or (NO_ANSWER if yes_no_other == paragraphify("") else "")
         answer = paragraphify(fix_typos(answer))
         answer = yes_no_other + answer
     else:
@@ -106,6 +110,7 @@ def paragraphify(text):
 def fix_typos(text):
     text = text.replace("I 'm", "I'm")
     text = text.replace("Bill maltby", "Bill Maltby")
+    text = text.replace("rep[resenting", "representing")
     return text
 
 @click.command()

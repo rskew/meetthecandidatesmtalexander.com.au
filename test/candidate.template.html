@@ -61,12 +61,20 @@
     font-size: 15px;
     max-width: 60vw;
   }
+  #questions-by-community-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   @media (min-width: 1000px) {
     #questions-container {
       max-width: 60vw;
     }
     #about {
       max-width: 800px;
+    }
+    #questions-by-community-group {
+      flex-direction: row;
     }
   }
   .back {
@@ -94,6 +102,7 @@
     cursor: pointer;
     font-family: noto-sans-medium;
     font-size: 20px;
+    height: 200px;
   }
   .section_button:hover {
     background-color: #f909;
@@ -166,11 +175,17 @@
         {{{about}}}
       </div>
       {{#has_answers}}
-        <div id="organisations" style="flex: 1">
-          <h3>Questions by Community Group</h3>
-          {{#organisations}}
-            <div id="{{title}}" class="organisations-name" style="cursor: pointer">{{title}}</div>
-          {{/organisations}}
+        <div id="organisations" style="margin-left: 48px;">
+          <h3 style="text-align: center">Questions by Community Group</h3>
+          <div id="questions-by-community-group">
+            {{#organisations_columns}}
+              <div>
+                {{#organisations}}
+                  <a href="#sections_with_buttons" style="text-decoration: none;"><div id="{{title}}" class="organisations-name" style="cursor: pointer">{{title}}</div></a>
+                {{/organisations}}
+              </div>
+            {{/organisations_columns}}
+          </div>
         </div>
         <div id="sections_with_buttons" style="display: flex; flex-direction: row; justify-content: space-between">
           <div class="section_button" id="section_button_left" style="margin-right: 5px;"><div style="padding: 20px; padding-top: 80px"><</div></div>
@@ -179,13 +194,13 @@
               {{#title}}
                 <div class="section">
                   <div style="font-size: 25px; color: #833; margin-top: 20px;">{{title}}</div>
-                  <div style="color: #833">{{{blurb}}}</div>
+                  <div style="color: #833; font-family: noto-sans-medium">{{{blurb}}}</div>
                 </div>
               {{/title}}
               {{#question}}
                 <div class="section">
                   <div id="{{organisation_title}}" style="font-size: 25px; color: #833; margin-top: 20px;">{{organisation_title}}</div>
-                    <div><b><i>{{{text}}}</b></i></div>
+                    <div style="font-family: noto-sans-medium"><i>{{{text}}}</i></div>
                   <div class="answer">
                     {{{answer}}}
                   </div>
