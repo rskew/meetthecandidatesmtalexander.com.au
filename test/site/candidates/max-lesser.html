@@ -71,7 +71,8 @@
   }
   .back {
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
+    color: black;
   }
   .back:hover {
     background-color: #f909;
@@ -116,23 +117,123 @@
         });
       }
 
-      document.getElementById('section_button_left').addEventListener('click', () => {
+      document.getElementById("section_button_left").addEventListener("click", () => {
         currentSection = (currentSection - 1 + sections.length) % sections.length;
         updateSection();
       });
 
-      document.getElementById('section_button_right').addEventListener('click', () => {
+      document.getElementById("section_button_right").addEventListener("click", () => {
         currentSection = (currentSection + 1) % sections.length;
         updateSection();
       });
+
+        document.getElementById("Castlemaine Commons").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 0;
+          updateSection();
+          console.log(0);
+          console.log(currentSection);
+        });
+        document.getElementById("Castlemaine Community House").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 6;
+          updateSection();
+          console.log(6);
+          console.log(currentSection);
+        });
+        document.getElementById("Castlemaine Pride").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 10;
+          updateSection();
+          console.log(10);
+          console.log(currentSection);
+        });
+        document.getElementById("Castlemaine Safe Space").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 14;
+          updateSection();
+          console.log(14);
+          console.log(currentSection);
+        });
+        document.getElementById("Castlemaine School Strike 4 Climate").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 17;
+          updateSection();
+          console.log(17);
+          console.log(currentSection);
+        });
+        document.getElementById("Central Victoria Climate Action").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 21;
+          updateSection();
+          console.log(21);
+          console.log(currentSection);
+        });
+        document.getElementById("Free Palestine Central Victoria").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 25;
+          updateSection();
+          console.log(25);
+          console.log(currentSection);
+        });
+        document.getElementById("Mount Alexander Shire Accommodation and Respite Group (MASARG)").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 29;
+          updateSection();
+          console.log(29);
+          console.log(currentSection);
+        });
+        document.getElementById("Mount Alexander Shire Disability Advocacy Group (MASDAG)").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 31;
+          updateSection();
+          console.log(31);
+          console.log(currentSection);
+        });
+        document.getElementById("My Home Network").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 33;
+          updateSection();
+          console.log(33);
+          console.log(currentSection);
+        });
+        document.getElementById("Rural Australians for Refugees - Castlemaine").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 38;
+          updateSection();
+          console.log(38);
+          console.log(currentSection);
+        });
+        document.getElementById("Young People of Mount Alexander Shire").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 41;
+          updateSection();
+          console.log(41);
+          console.log(currentSection);
+        });
+
+      updateSection();
     })
   </script>
   <body style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-    <div onclick="history.back()" class="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
+    <div style="text-align: left; width: 100%;"><a href="../wards/coliban.html" class="back" style="padding: 5px;">Back to Ward</a></div>
+    <div style="text-align: left; width: 100%;"><a href="../index.html" class="back" style="padding: 5px;">Back to Map</a></div>
     <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
     <img width="500px" src="../images/max_lesser.jpg" style="border-radius: 30px; margin-top: 30px"/>
     <h1 style="font-weight: 400; margin: 15px">Max Lesser</h1>
-    <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Standing for Coliban</div>
+    <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Coliban</div>
     <div id="everything-container">
       <div id="about">
         <p>This candidate did not respond to the questionnaire</p>

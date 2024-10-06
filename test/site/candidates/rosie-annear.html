@@ -71,7 +71,8 @@
   }
   .back {
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
+    color: black;
   }
   .back:hover {
     background-color: #f909;
@@ -116,23 +117,122 @@
         });
       }
 
-      document.getElementById('section_button_left').addEventListener('click', () => {
+      document.getElementById("section_button_left").addEventListener("click", () => {
         currentSection = (currentSection - 1 + sections.length) % sections.length;
         updateSection();
       });
 
-      document.getElementById('section_button_right').addEventListener('click', () => {
+      document.getElementById("section_button_right").addEventListener("click", () => {
         currentSection = (currentSection + 1) % sections.length;
         updateSection();
       });
+
+        document.getElementById("Castlemaine Commons").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 0;
+          updateSection();
+          console.log(0);
+          console.log(currentSection);
+        });
+        document.getElementById("Castlemaine Community House").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 6;
+          updateSection();
+          console.log(6);
+          console.log(currentSection);
+        });
+        document.getElementById("Castlemaine Pride").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 10;
+          updateSection();
+          console.log(10);
+          console.log(currentSection);
+        });
+        document.getElementById("Castlemaine Safe Space").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 14;
+          updateSection();
+          console.log(14);
+          console.log(currentSection);
+        });
+        document.getElementById("Castlemaine School Strike 4 Climate").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 17;
+          updateSection();
+          console.log(17);
+          console.log(currentSection);
+        });
+        document.getElementById("Central Victoria Climate Action").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 21;
+          updateSection();
+          console.log(21);
+          console.log(currentSection);
+        });
+        document.getElementById("Free Palestine Central Victoria").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 25;
+          updateSection();
+          console.log(25);
+          console.log(currentSection);
+        });
+        document.getElementById("Mount Alexander Shire Accommodation and Respite Group (MASARG)").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 29;
+          updateSection();
+          console.log(29);
+          console.log(currentSection);
+        });
+        document.getElementById("Mount Alexander Shire Disability Advocacy Group (MASDAG)").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 31;
+          updateSection();
+          console.log(31);
+          console.log(currentSection);
+        });
+        document.getElementById("My Home Network").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 33;
+          updateSection();
+          console.log(33);
+          console.log(currentSection);
+        });
+        document.getElementById("Rural Australians for Refugees - Castlemaine").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 38;
+          updateSection();
+          console.log(38);
+          console.log(currentSection);
+        });
+        document.getElementById("Young People of Mount Alexander Shire").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = 41;
+          updateSection();
+          console.log(41);
+          console.log(currentSection);
+        });
+
+      updateSection();
     })
   </script>
   <body style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-    <div onclick="history.back()" class="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
+    <div style="text-align: left; width: 100%;"><a href="../index.html" class="back" style="padding: 5px;">Back to Map</a></div>
     <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
     <img width="500px" src="../images/rosie_annear.jpg" style="border-radius: 30px; margin-top: 30px"/>
     <h1 style="font-weight: 400; margin: 15px">Rosie Annear</h1>
-    <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Standing for Barkers Creek (uncontested)</div>
+    <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Barkers Creek (uncontested)</div>
     <div id="everything-container">
       <div id="about">
         <p>I appreciate the time and passion that has gone into the questionnaire, both from the organisers and the community groups represented in it. Please don’t misinterpret my lack of question-by-question responses as a lack of interest or support. I am supportive of these community groups and the issues they raise - housing, mental health, climate, human rights, diversity and inclusion. Many of these issues are at the core of why I ran for Council four years ago, and why I’m running again now.</p><p>I hope, over the last four years, and before, I have shown through actions, words, and values, that I consider things with an open mind and without judgement, that I take the time to listen to people and respond to their concerns as best I can, and that I really care about our shire and the people who live here.</p><p>However, I feel that many of the questions included here ask more than is reasonable of a candidate standing for local government, and ask me to commit to things that may be beyond my ability as a Councillor, or outside of Council’s control.</p><p>After four years of feeling honestly pretty overwhelmed by the weight of so many people’s contempt for and expectations of me (and of Council as a whole), I have learned an awful lot about what I can and can’t do, and that a Council – especially a small, rural one, like ours – can’t be all things and can’t do it all.</p><p>Again, that is not to say I will not advocate for the issues raised in this questionnaire - I know I will. But I’m unable to commit to the specific actions being asked of me as a Council candidate, as this may set me up for failure and people up for disappointment or anger.</p><p>Council is a complicated beast, more complex than anything I’ve navigated before (except parenthood, of course). I know so much more than I did four years ago, and with that comes knowledge of the limitations and challenges that Councillors and Council faces. Nothing is easy, everything takes time, and some things are just out of scope of what local government can do.</p><p>I guess what I’m really trying to do here is ask people to trust me a bit. Trust that I care about these issues, that I will support and advocate for them - when I can - and that I will continue to keep community top of mind and front of heart in everything I do.</p><p></p>

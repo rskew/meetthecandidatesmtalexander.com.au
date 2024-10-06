@@ -28,8 +28,16 @@ def munge(data, row_dicts):
             org_sections(org, answers_row)
             for org in data["organisations"]
         ]
-        sections = [section for inner_sections in sections_nested for section in inner_sections]
-        sections[0]["active"] = True
+
+        sections = []
+        section_index = 0
+        org_section_indices = {}
+        for inner_sections in sections_nested:
+            org_section_indices[inner_sections[0]["title"]] = section_index
+            for section in inner_sections:
+                section["section_index"] = section_index
+                sections.append(section)
+                section_index = section_index + 1
         munged_candidate = {
             "name": fix_typos(candidate["name"]),
             "name_kebab": kebabify(candidate["name"]),
@@ -43,10 +51,13 @@ def munge(data, row_dicts):
                 {**org,
                  "blurb": paragraphify(org["blurb"]),
                  "questions": [render_question(question, answers_row)
-                               for question in org["questions"]]}
+                               for question in org["questions"]],
+                 "section_index": org_section_indices[org["title"]]}
                 for org in data["organisations"]
             ] if "didnt_response" not in candidate else [],
         }
+        if not candidate["uncontested"]:
+            munged_candidate["back_to_ward_link"] = f"../wards/{kebabify(candidate['ward'])}.html"
         if "statement" not in candidate and "didnt_respond" not in candidate:
             munged_candidate["has_answers"] = True
         candidates.append(munged_candidate)
@@ -54,7 +65,7 @@ def munge(data, row_dicts):
 
 def org_sections(org, row):
     sections = [{"title": org["title"],
-                 "blurb": paragraphify(fix_typos(org["blurb"]))}]
+                 "blurb": paragraphify(fix_typos(org["blurb"])) + "<div style='text-align: center; margin-top: 50px; color: black;'><b>Use the < and > buttons to nagivate the question responses</b></div>"}]
     for question in org["questions"]:
         sections.append({"question": {"text": paragraphify(fix_typos(question["text"])),
                                       "answer": render_answer(question, row),

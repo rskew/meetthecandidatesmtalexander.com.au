@@ -71,7 +71,8 @@
   }
   .back {
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
+    color: black;
   }
   .back:hover {
     background-color: #f909;
@@ -127,23 +128,39 @@
         });
       }
 
-      document.getElementById('section_button_left').addEventListener('click', () => {
+      document.getElementById("section_button_left").addEventListener("click", () => {
         currentSection = (currentSection - 1 + sections.length) % sections.length;
         updateSection();
       });
 
-      document.getElementById('section_button_right').addEventListener('click', () => {
+      document.getElementById("section_button_right").addEventListener("click", () => {
         currentSection = (currentSection + 1) % sections.length;
         updateSection();
       });
+
+      {{#organisations}}
+        document.getElementById("{{title}}").addEventListener("click", () => {
+          console.log("debug");
+          console.log(currentSection);
+          currentSection = {{section_index}};
+          updateSection();
+          console.log({{section_index}});
+          console.log(currentSection);
+        });
+      {{/organisations}}
+
+      updateSection();
     })
   </script>
   <body style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-    <div onclick="history.back()" class="back" style="position: absolute; top: 10px; left: 10px; padding: 5px;">Back</div>
+    {{#back_to_ward_link}}
+    <div style="text-align: left; width: 100%;"><a href="{{back_to_ward_link}}" class="back" style="padding: 5px;">Back to Ward</a></div>
+    {{/back_to_ward_link}}
+    <div style="text-align: left; width: 100%;"><a href="../index.html" class="back" style="padding: 5px;">Back to Map</a></div>
     <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
     <img width="500px" src="../images/{{picture}}" style="border-radius: 30px; margin-top: 30px"/>
     <h1 style="font-weight: 400; margin: 15px">{{name}}</h1>
-    <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Standing for {{ward}}{{#uncontested}} ({{uncontested}}){{/uncontested}}</div>
+    <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">{{ward}}{{#uncontested}} ({{uncontested}}){{/uncontested}}</div>
     <div id="everything-container">
       <div id="about">
         {{{about}}}
@@ -152,7 +169,7 @@
         <div id="organisations" style="flex: 1">
           <h3>Questions by Community Group</h3>
           {{#organisations}}
-          <a href="#{{title}}" style="text-decoration: none;"><div class="organisations-name">{{title}}</div></a>
+            <div id="{{title}}" class="organisations-name" style="cursor: pointer">{{title}}</div>
           {{/organisations}}
         </div>
         <div id="sections_with_buttons" style="display: flex; flex-direction: row; justify-content: space-between">
@@ -160,15 +177,15 @@
           <div id="sections" style="width: 90%; min-height: 600px;">
             {{#sections}}
               {{#title}}
-                <div class="section{{#active}} active{{/active}}">
-                  <div id="{{title}}" style="font-size: 25px; color: #833; margin-top: 20px;">{{title}}</div>
+                <div class="section">
+                  <div style="font-size: 25px; color: #833; margin-top: 20px;">{{title}}</div>
                   <div style="color: #833">{{{blurb}}}</div>
                 </div>
               {{/title}}
               {{#question}}
                 <div class="section">
                   <div id="{{organisation_title}}" style="font-size: 25px; color: #833; margin-top: 20px;">{{organisation_title}}</div>
-                  <div><i>{{{text}}}</i></div>
+                    <div><b><i>{{{text}}}</b></i></div>
                   <div class="answer">
                     {{{answer}}}
                   </div>
@@ -178,23 +195,6 @@
           </div>
           <div class="section_button" id="section_button_right" style="margin-left: 5px;"><div style="padding: 20px; padding-top: 80px">></div></div>
         </div>
-        <!--
-        <div id="questions-container" style="flex: 2">
-          {{#organisations}}
-            <br>
-            <div id="{{title}}" style="font-size: 25px; color: #833; margin-top: 20px;">{{title}}</div>
-            <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
-                        padding-left: 14px; padding-top: 0; padding-bottom: 0;">{{{blurb}}}</div>
-            {{#questions}}
-              <div style="margin-left: 18px;"><i>{{{text}}}</i></div>
-              <div class="answer">
-                {{{answer}}}
-              </div>
-              <hr size="1" align="left" width="30%" style="margin: 20px; margin-left: 50px;">
-            {{/questions}}
-          {{/organisations}}
-        </div>
-        -->
       {{/has_answers}}
     </div>
   </body>
