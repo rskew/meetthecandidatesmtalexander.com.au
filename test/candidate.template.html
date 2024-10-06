@@ -50,7 +50,7 @@
   }
   .answer {
     margin: 15px;
-    margin-left: 50px;
+    margin-left: 30px;
     font-size: 16px;
     font-weight: 400;
   }
@@ -91,6 +91,13 @@
   }
   .section_button {
     cursor: pointer;
+    font-family: noto-sans-medium;
+    font-size: 20px;
+  }
+  .section_button:hover {
+    background-color: #f909;
+    border-radius: 10px;
+    user-select: none;
   }
   </style>
   <script>
@@ -148,21 +155,20 @@
           <a href="#{{title}}" style="text-decoration: none;"><div class="organisations-name">{{title}}</div></a>
           {{/organisations}}
         </div>
-        <!--
         <div id="sections_with_buttons" style="display: flex; flex-direction: row; justify-content: space-between">
-          <div class="section_button" id="section_button_left" style="display: flex; flex-direction: column; justify-content: center"><</div>
-          <div id="sections">
+          <div class="section_button" id="section_button_left" style="margin-right: 5px;"><div style="padding: 20px; padding-top: 80px"><</div></div>
+          <div id="sections" style="width: 90%; min-height: 600px;">
             {{#sections}}
               {{#title}}
                 <div class="section{{#active}} active{{/active}}">
                   <div id="{{title}}" style="font-size: 25px; color: #833; margin-top: 20px;">{{title}}</div>
-                  <div style="margin: 20px; margin-right: 0px; border-style: solid; border-width: 0; border-left-width: 1px; border-color: #888;
-                              padding-left: 14px; padding-top: 0; padding-bottom: 0;">{{{blurb}}}</div>
+                  <div style="color: #833">{{{blurb}}}</div>
                 </div>
               {{/title}}
               {{#question}}
                 <div class="section">
-                  <div style="margin-left: 18px;"><i>{{{text}}}</i></div>
+                  <div id="{{organisation_title}}" style="font-size: 25px; color: #833; margin-top: 20px;">{{organisation_title}}</div>
+                  <div><i>{{{text}}}</i></div>
                   <div class="answer">
                     {{{answer}}}
                   </div>
@@ -170,9 +176,9 @@
               {{/question}}
             {{/sections}}
           </div>
-          <div class="section_button" id="section_button_right" style="display: flex; flex-direction: column; justify-content: center">></div>
+          <div class="section_button" id="section_button_right" style="margin-left: 5px;"><div style="padding: 20px; padding-top: 80px">></div></div>
         </div>
-        -->
+        <!--
         <div id="questions-container" style="flex: 2">
           {{#organisations}}
             <br>
@@ -188,6 +194,7 @@
             {{/questions}}
           {{/organisations}}
         </div>
+        -->
       {{/has_answers}}
     </div>
   </body>

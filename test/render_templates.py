@@ -56,7 +56,9 @@ def org_sections(org, row):
     sections = [{"title": org["title"],
                  "blurb": paragraphify(fix_typos(org["blurb"]))}]
     for question in org["questions"]:
-        sections.append({"question": {"text": paragraphify(fix_typos(question["text"])), "answer": render_answer(question, row)}})
+        sections.append({"question": {"text": paragraphify(fix_typos(question["text"])),
+                                      "answer": render_answer(question, row),
+                                      "organisation_title": org["title"]}})
     return sections
 
 def render_answer(question, row):
