@@ -25,7 +25,7 @@ def munge(data, row_dicts):
         else:
             about = answers_row[data["about"]]
         sections_nested = [
-            org_sections(org, answers_row)
+            org_sections(org, answers_row, data["text_replacements"])
             for org in data["organisations"]
         ]
 
@@ -40,21 +40,18 @@ def munge(data, row_dicts):
                 section_index = section_index + 1
 
         organisations = [
-            {**org,
-             "blurb": paragraphify(org["blurb"]),
-             "questions": [render_question(question, answers_row)
-                           for question in org["questions"]],
+            {"title": org["title"],
              "section_index": org_section_indices[org["title"]]}
             for org in data["organisations"]
         ]
         organisations_columns = [{"organisations": organisations[:6]}, {"organisations": organisations[6:]}]
         munged_candidate = {
-            "name": fix_typos(candidate["name"]),
+            "name": apply_replacements(candidate["name"], data["text_replacements"]),
             "name_kebab": kebabify(candidate["name"]),
             "ward": candidate["ward"],
             "ward_kebab": kebabify(candidate["ward"]),
             "uncontested": "uncontested" if candidate["uncontested"] else "",
-            "about": paragraphify(fix_typos(about)),
+            "about": paragraphify(apply_replacements(about, data["text_replacements"])),
             "picture": candidate["picture"],
             "sections": sections,
             "organisations_columns": organisations_columns,
@@ -67,16 +64,16 @@ def munge(data, row_dicts):
         candidates.append(munged_candidate)
     return candidates
 
-def org_sections(org, row):
+def org_sections(org, row, text_replacements):
     sections = [{"title": org["title"],
-                 "blurb": paragraphify(fix_typos(org["blurb"])) + "<div style='text-align: center; margin-top: 50px; color: black;'><b>Use the < and > buttons to nagivate the question responses</b></div>"}]
+                 "blurb": paragraphify(apply_replacements(org["blurb"], text_replacements)) + "<div style='text-align: center; margin-top: 50px; color: black;'><b>Use the < and > buttons to nagivate the question responses</b></div>"}]
     for question in org["questions"]:
-        sections.append({"question": {"text": paragraphify(fix_typos(question["text"])),
-                                      "answer": render_answer(question, row),
+        sections.append({"question": {"text": paragraphify(apply_replacements(question["text"], text_replacements)),
+                                      "answer": render_answer(question, row, text_replacements),
                                       "organisation_title": org["title"]}})
     return sections
 
-def render_answer(question, row):
+def render_answer(question, row, text_replacements):
     if question["answer_type"] == COMMENT_TYPE:
         answer = row.get(question["text"]) or NO_ANSWER
     elif question["answer_type"] == YES_NO_OTHER_TYPE:
@@ -89,11 +86,11 @@ def render_answer(question, row):
         answer = yes_no_other + "\n" + answer
     else:
         raise ValueError(f"Blarrgh! {question}")
-    answer = paragraphify(fix_typos(answer))
+    answer = paragraphify(apply_replacements(answer, text_replacements))
     return answer
 
-def render_question(question, row):
-    answer = render_answer(question, row)
+def render_question(question, row, text_replacements):
+    answer = render_answer(question, row, text_replacements)
     rendered = {}
     rendered["text"] = paragraphify(question["text"])
     rendered["answer"] = answer
@@ -105,34 +102,9 @@ def kebabify(text):
 def paragraphify(text):
     return "".join([f"<p>{line}</p>" for line in text.split("\n")])
 
-def fix_typos(text):
-    text = text.replace("I 'm", "I'm")
-    text = text.replace("Bill maltby", "Bill Maltby")
-    text = text.replace("Ken Price ", "Ken Price")
-    text = text.replace("rep[resenting", "representing")
-    text = text.replace(" ,", ",")
-    text = text.replace(" .", ".")
-    text = text.replace("[1]", "\n[1]")
-    text = text.replace("[2]", "\n[2]")
-    text = text.replace("[3]", "\n[3]")
-    text = text.replace("[4]", "\n[4]")
-    text = text.replace("[5]", "\n[5]")
-    text = text.replace("www.facebook.com/lucasmaddockgreens", "<a href=\"https://www.facebook.com/lucasmaddockgreens\">www.facebook.com/lucasmaddockgreens</a>")
-    text = text.replace("if elected, I commit to working with you to continue", "If elected, I commit to working with you to continue")
-    text = text.replace("""What are your attitudes to Forest fire management Victoria's flawed policy on planned burning in Victorian forests? 
-For more information, check here:
-Fire: paying attention to the detail | Friends of the Box-Ironbark Forests
-fobif.org.au
-and : 
-https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683""",
-                        """What are your attitudes to Forest fire management Victoria's flawed policy on planned burning in Victorian forests? 
-For more information, check here:
-<li><a href="https://www.fobif.org.au/2024/08/fire-paying-attention-to-the-detail/">Fire: paying attention to the detail | Friends of the Box-Ironbark Forests</a></li>
-<li><a href="https://www.fobif.org.au/2024/08/fire-paying-attention-to-the-detail/">fobif.org.au</a></li>
-and: 
-<li><a href="https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683">https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683</a></li>""")
-    text = text.replace("I also strongly believe that I would represent our ward through strong advocacy, transparency, whilst always maintaining our community values.",
-                        "I also strongly believe that I would represent our ward through strong advocacy, transparency, whilst always maintaining our community values.\nYou can follow my campaign at <a href=\"https://www.facebook.com/kellyannforcoliban\" target=\"_blank\" rel=\"noopener noreferrer\">www.facebook.com/kellyannforcoliban</a>")
+def apply_replacements(text, text_replacements):
+    for replacement in text_replacements:
+        text = text.replace(replacement["old"], replacement["new"])
     return text
 
 @click.command()
