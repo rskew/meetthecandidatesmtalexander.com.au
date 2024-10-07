@@ -113,18 +113,6 @@
   }
   </style>
   <script>
-    {{#has_answers}}
-    window.onscroll = function (oEvent) {
-      var mydivpos = document.getElementById("organisations").offsetTop;
-      var scrollPos = window.scrollY;
-      if(scrollPos >= mydivpos) {
-        document.getElementById("back-to-top").classList.remove("hidden");
-      } else {
-        document.getElementById("back-to-top").classList.add("hidden");
-      }
-    };
-    {{/has_answers}}
-
     window.addEventListener("DOMContentLoaded", function() {
       const sections = document.querySelectorAll('.section');
       let currentSection = 0;
@@ -151,12 +139,10 @@
 
       {{#organisations}}
         document.getElementById("{{title}}").addEventListener("click", () => {
-          console.log("debug");
-          console.log(currentSection);
           currentSection = {{section_index}};
           updateSection();
-          console.log({{section_index}});
-          console.log(currentSection);
+          let element = document.getElementById('sections_with_buttons');
+          element.scrollIntoView({ behavior: 'smooth' });
         });
       {{/organisations}}
 
@@ -182,7 +168,7 @@
             {{#organisations_columns}}
               <div>
                 {{#organisations}}
-                  <a href="#sections_with_buttons" style="text-decoration: none;"><div id="{{title}}" class="organisations-name" style="cursor: pointer">{{title}}</div></a>
+                  <div id="{{title}}" class="organisations-name" style="cursor: pointer">{{title}}</div>
                 {{/organisations}}
               </div>
             {{/organisations_columns}}

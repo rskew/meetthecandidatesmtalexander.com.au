@@ -131,6 +131,8 @@ For more information, check here:
 <li><a href="https://www.fobif.org.au/2024/08/fire-paying-attention-to-the-detail/">fobif.org.au</a></li>
 and: 
 <li><a href="https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683">https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683</a></li>""")
+    text = text.replace("I also strongly believe that I would represent our ward through strong advocacy, transparency, whilst always maintaining our community values.",
+                        "I also strongly believe that I would represent our ward through strong advocacy, transparency, whilst always maintaining our community values.\nYou can follow my campaign at <a href=\"https://www.facebook.com/kellyannforcoliban\" target=\"_blank\" rel=\"noopener noreferrer\">www.facebook.com/kellyannforcoliban</a>")
     return text
 
 @click.command()
