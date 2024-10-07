@@ -121,7 +121,7 @@ We are also part of the newly formed First Nations Solidarity Network - Liyangan
 text = "Since the referendum we have seen an increase in racism in schools and across our community. How will you address this division and ensure there is accountability and transparency about the learning and truth telling that is needed? "
 answer_type = "comment"
 
-[[organisations.quesitions]]
+[[organisations.questions]]
 text = "To inform your leadership decisions, will you personally commit to ongoing learning about anti-racism, truth telling and colonisation? "
 answer_type = "yes_no_other"
 comment_question = "Please provide any comments you have about personally committing to ongoing learning about anti-racism, truth telling and colonisation here:"

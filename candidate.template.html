@@ -165,7 +165,6 @@
     <div style="text-align: left; width: 100%;"><a href="{{back_to_ward_link}}" class="back" style="padding: 5px;">Back to Ward</a></div>
     {{/back_to_ward_link}}
     <div style="text-align: left; width: 100%;"><a href="../index.html" class="back" style="padding: 5px;">Back to Map</a></div>
-    <div onclick="window.scrollTo(0, 0)" id="back-to-top" class="back hidden" style="position: fixed; top: 10px; right: 10px; padding: 5px;">Back to Top</div>
     <img width="500px" src="../images/{{picture}}" style="border-radius: 30px; margin-top: 30px"/>
     <h1 style="font-weight: 400; margin: 15px">{{name}}</h1>
     <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">{{ward}}{{#uncontested}} ({{uncontested}}){{/uncontested}}</div>
@@ -199,7 +198,8 @@
               {{#question}}
                 <div class="section">
                   <div id="{{organisation_title}}" style="font-size: 25px; color: #833; margin-top: 20px;">{{organisation_title}}</div>
-                    <div style="font-family: noto-sans-medium"><i>{{{text}}}</i></div>
+                  <div style="font-family: noto-sans-medium"><i>{{{text}}}</i></div>
+                  <div style="margin-top: 30px;"><b>{{name}}:</b></div>
                   <div class="answer">
                     {{{answer}}}
                   </div>

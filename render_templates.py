@@ -21,7 +21,7 @@ def munge(data, row_dicts):
         if "statement" in candidate:
             about = candidate["statement"]
         elif "didnt_respond" in candidate:
-            about = "This candidate did not respond to the questionnaire"
+            about = "This candidate did not respond to the questionnaire."
         else:
             about = answers_row[data["about"]]
         sections_nested = [
@@ -85,13 +85,11 @@ def render_answer(question, row):
             yes_no_other = f"<p><b>{yes_no_other}</b></p>"
         elif yes_no_other == "Refer below":
             yes_no_other = ""
-        else:
-            yes_no_other = paragraphify(yes_no_other)
-        answer = row.get(question["comment_question"]) or (NO_ANSWER if yes_no_other == paragraphify("") else "")
-        answer = paragraphify(fix_typos(answer))
-        answer = yes_no_other + answer
+        answer = row.get(question["comment_question"]) or (NO_ANSWER if yes_no_other == "" else "")
+        answer = yes_no_other + "\n" + answer
     else:
         raise ValueError(f"Blarrgh! {question}")
+    answer = paragraphify(fix_typos(answer))
     return answer
 
 def render_question(question, row):
@@ -110,7 +108,29 @@ def paragraphify(text):
 def fix_typos(text):
     text = text.replace("I 'm", "I'm")
     text = text.replace("Bill maltby", "Bill Maltby")
+    text = text.replace("Ken Price ", "Ken Price")
     text = text.replace("rep[resenting", "representing")
+    text = text.replace(" ,", ",")
+    text = text.replace(" .", ".")
+    text = text.replace("[1]", "\n[1]")
+    text = text.replace("[2]", "\n[2]")
+    text = text.replace("[3]", "\n[3]")
+    text = text.replace("[4]", "\n[4]")
+    text = text.replace("[5]", "\n[5]")
+    text = text.replace("www.facebook.com/lucasmaddockgreens", "<a href=\"https://www.facebook.com/lucasmaddockgreens\">www.facebook.com/lucasmaddockgreens</a>")
+    text = text.replace("if elected, I commit to working with you to continue", "If elected, I commit to working with you to continue")
+    text = text.replace("""What are your attitudes to Forest fire management Victoria's flawed policy on planned burning in Victorian forests? 
+For more information, check here:
+Fire: paying attention to the detail | Friends of the Box-Ironbark Forests
+fobif.org.au
+and : 
+https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683""",
+                        """What are your attitudes to Forest fire management Victoria's flawed policy on planned burning in Victorian forests? 
+For more information, check here:
+<li><a href="https://www.fobif.org.au/2024/08/fire-paying-attention-to-the-detail/">Fire: paying attention to the detail | Friends of the Box-Ironbark Forests</a></li>
+<li><a href="https://www.fobif.org.au/2024/08/fire-paying-attention-to-the-detail/">fobif.org.au</a></li>
+and: 
+<li><a href="https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683">https://theconversation.com/yes-climate-change-is-bringing-bushfires-more-often-but-some-ecosystems-in-australia-are-suffering-the-most-211683</a></li>""")
     return text
 
 @click.command()
