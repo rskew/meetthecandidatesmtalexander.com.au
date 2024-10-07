@@ -80,20 +80,22 @@
       flex-direction: row;
     }
   }
-  .back {
+  .back-container {
     text-decoration: none;
     font-size: 15px;
     color: black;
+    padding: 5px;
+    text-align: left;
+    width: 100%;
   }
-  .back:hover {
+  .back-link {
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+  }
+  .back-link:hover {
     background-color: #f909;
     text-decoration: underline;
-  }
-  #back-to-top {
-    display: block;
-  }
-  #back-to-top.hidden {
-    display: none;
   }
   .section {
     display: none;
@@ -114,6 +116,7 @@
   </style>
   <script>
     window.addEventListener("DOMContentLoaded", function() {
+
       const sections = document.querySelectorAll('.section');
       let currentSection = 0;
 
@@ -138,23 +141,23 @@
       });
 
       {{#organisations}}
-        document.getElementById("{{title}}").addEventListener("click", () => {
-          currentSection = {{section_index}};
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
+      document.getElementById("{{title}}").addEventListener("click", () => {
+        currentSection = {{section_index}};
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
       {{/organisations}}
 
       updateSection();
     })
   </script>
   <body style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+    <div class="back-container"><a href="../index.html" class="back-link">Back to Map</a></div>
     {{#back_to_ward_link}}
-    <div style="text-align: left; width: 100%;"><a href="{{back_to_ward_link}}" class="back" style="padding: 5px;">Back to Ward</a></div>
+    <div class="back-container"><a href="{{back_to_ward_link}}" class="back-link">Back to Ward</a></div>
     {{/back_to_ward_link}}
-    <div style="text-align: left; width: 100%;"><a href="../index.html" class="back" style="padding: 5px;">Back to Map</a></div>
-    <img width="500px" src="../images/{{picture}}" style="border-radius: 30px; margin-top: 30px"/>
+    <img width="500px" src="../images/{{picture}}" style="border-radius: 30px; margin-top: 10px"/>
     <h1 style="font-weight: 400; margin: 15px">{{name}}</h1>
     <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">{{ward}}{{#uncontested}} ({{uncontested}}){{/uncontested}}</div>
     <div id="everything-container">

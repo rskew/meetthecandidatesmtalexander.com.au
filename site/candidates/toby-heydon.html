@@ -80,20 +80,22 @@
       flex-direction: row;
     }
   }
-  .back {
+  .back-container {
     text-decoration: none;
     font-size: 15px;
     color: black;
+    padding: 5px;
+    text-align: left;
+    width: 100%;
   }
-  .back:hover {
+  .back-link {
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+  }
+  .back-link:hover {
     background-color: #f909;
     text-decoration: underline;
-  }
-  #back-to-top {
-    display: block;
-  }
-  #back-to-top.hidden {
-    display: none;
   }
   .section {
     display: none;
@@ -114,6 +116,7 @@
   </style>
   <script>
     window.addEventListener("DOMContentLoaded", function() {
+
       const sections = document.querySelectorAll('.section');
       let currentSection = 0;
 
@@ -137,85 +140,85 @@
         updateSection();
       });
 
-        document.getElementById("Castlemaine Commons").addEventListener("click", () => {
-          currentSection = 0;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Castlemaine Community House").addEventListener("click", () => {
-          currentSection = 7;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Castlemaine Pride").addEventListener("click", () => {
-          currentSection = 11;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Castlemaine Safe Space").addEventListener("click", () => {
-          currentSection = 15;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Castlemaine School Strike 4 Climate").addEventListener("click", () => {
-          currentSection = 18;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Central Victoria Climate Action").addEventListener("click", () => {
-          currentSection = 22;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Free Palestine Central Victoria").addEventListener("click", () => {
-          currentSection = 26;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Mount Alexander Shire Accommodation and Respite Group (MASARG)").addEventListener("click", () => {
-          currentSection = 30;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Mount Alexander Shire Disability Advocacy Group (MASDAG)").addEventListener("click", () => {
-          currentSection = 32;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("My Home Network").addEventListener("click", () => {
-          currentSection = 34;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Rural Australians for Refugees - Castlemaine").addEventListener("click", () => {
-          currentSection = 39;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
-        document.getElementById("Young People of Mount Alexander Shire").addEventListener("click", () => {
-          currentSection = 42;
-          updateSection();
-          let element = document.getElementById('sections_with_buttons');
-          element.scrollIntoView({ behavior: 'smooth' });
-        });
+      document.getElementById("Castlemaine Commons").addEventListener("click", () => {
+        currentSection = 0;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Castlemaine Community House").addEventListener("click", () => {
+        currentSection = 7;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Castlemaine Pride").addEventListener("click", () => {
+        currentSection = 11;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Castlemaine Safe Space").addEventListener("click", () => {
+        currentSection = 15;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Castlemaine School Strike 4 Climate").addEventListener("click", () => {
+        currentSection = 18;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Central Victoria Climate Action").addEventListener("click", () => {
+        currentSection = 22;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Free Palestine Central Victoria").addEventListener("click", () => {
+        currentSection = 26;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Mount Alexander Shire Accommodation and Respite Group (MASARG)").addEventListener("click", () => {
+        currentSection = 30;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Mount Alexander Shire Disability Advocacy Group (MASDAG)").addEventListener("click", () => {
+        currentSection = 32;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("My Home Network").addEventListener("click", () => {
+        currentSection = 34;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Rural Australians for Refugees - Castlemaine").addEventListener("click", () => {
+        currentSection = 39;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
+      document.getElementById("Young People of Mount Alexander Shire").addEventListener("click", () => {
+        currentSection = 42;
+        updateSection();
+        let element = document.getElementById('sections_with_buttons');
+        element.scrollIntoView({ behavior: 'smooth' });
+      });
 
       updateSection();
     })
   </script>
   <body style="display: flex; flex-direction: column; justify-content: center; align-items: center">
-    <div style="text-align: left; width: 100%;"><a href="../index.html" class="back" style="padding: 5px;">Back to Map</a></div>
-    <img width="500px" src="../images/toby_heydon.png" style="border-radius: 30px; margin-top: 30px"/>
+    <div class="back-container"><a href="../index.html" class="back-link">Back to Map</a></div>
+    <img width="500px" src="../images/toby_heydon.png" style="border-radius: 30px; margin-top: 10px"/>
     <h1 style="font-weight: 400; margin: 15px">Toby Heydon</h1>
     <div style="font-weight: 400; font-size: 14px; margin: 10px; margin-top: 0px">Forest Creek (uncontested)</div>
     <div id="everything-container">
