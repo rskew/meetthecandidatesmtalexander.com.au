@@ -17,8 +17,9 @@
   html {
     font-family: noto-sans;
     height: 100%;
+	  scroll-behavior: smooth;
   }
-  body, p, h1 {
+  body, h1 {
     margin: 0px;
     background-color: "#eee";
     height: 100%;
@@ -30,15 +31,6 @@
       width: 20px;
       height: 20px;
   }
-  #back {
-    text-decoration: none;
-    font-size: 12px;
-    cursor: pointer;
-  }
-  #back:hover {
-    background-color: #f909;
-    text-decoration: underline;
-  }
   .video {
     width: 80vw;
     display: flex;
@@ -49,6 +41,55 @@
     .video {
       width: 40vw;
     }
+    .organisation-blurb{
+      width: 35vw;
+    }
+    #questions-by-community-group {
+      flex-direction: row;
+    }
+  }
+  .back-container {
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    padding: 5px;
+    text-align: left;
+    width: 100%;
+    margin-top: 7px;
+  }
+  .back-link {
+    padding: 5px;
+    color: black;
+    text-decoration: none;
+  }
+  .back-link:hover {
+    background-color: #f909;
+    text-decoration: underline;
+  }
+  .video-title {
+    font-family: noto-sans-medium;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    color: #833;
+  }
+  .organisation-blurb {
+
+  }
+  #questions-by-community-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .organisations-name {
+    padding: 5px;
+    margin: 5px;
+    color: #833;
+    text-decoration: none;
+  }
+  .organisations-name:hover {
+    background-color: #f909;
+    text-decoration: underline;
   }
   </style>
   <script>
@@ -57,17 +98,97 @@
     <div style="background-color: #a8cc53e0; font-weight: 400; text-align: center; padding: 15px;">
       <div style="font-family: noto-sans-medium; font-size: 24px; padding-bottom: 10px;">Meet the Candidates Mount Alexander 2024</div>
       <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
-        <div style="font-size: 12px">Media from the event</div>
+        <div style="font-size: 15px">Event Media</div>
         <div><a class="socials-link" href="https://www.facebook.com/meetthecandidatesmtalexander" target="_blank" rel="noopener noreferrer">
             <img class="socials-icon" src="facebook_icon.svg" alt="Facebook link"/></a></div>
         <div><a class="socials-link" href="https://www.instagram.com/meetthecandidatesmtalex?igsh=M3I3aGIwbDZiYm81" target="_blank" rel="noopener noreferrer">
             <img class="socials-icon" src="insta_icon.svg" alt="Insta link"/></a></div>
       </div>
     </div>
-    <div onclick="history.back()" id="back" style="width: 30px; padding: 5px;">Back</div>
+    <div class="back-container"><a href="../index.html" class="back-link">Back to Map</a></div>
     <div style="display: flex; flex-direction: column; align-items: center;">
       <div class="video">
+        <div class="video-title" style="color: black;">Media from the Event</div>
         <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/D2k3r79VBAA?si=zmidYP0AfBmMRvOu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <h3 style="text-align: center">Videos by Community Group</h3>
+      <div id="questions-by-community-group">
+          <div>
+            <a href="#Castlemaine Commons" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Castlemaine Commons</div></a>
+            <a href="#Castlemaine Community House" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Castlemaine Community House</div></a>
+            <a href="#Castlemaine Pride" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Castlemaine Pride</div></a>
+            <a href="#Castlemaine Safe Space" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Castlemaine Safe Space</div></a>
+            <a href="#Castlemaine School Strike 4 Climate" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Castlemaine School Strike 4 Climate</div></a>
+            <a href="#Central Victoria Climate Action" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Central Victoria Climate Action</div></a>
+          </div>
+          <div>
+            <a href="#Free Palestine Central Victoria" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Free Palestine Central Victoria</div></a>
+            <a href="#Mount Alexander Shire Accommodation and Respite Group (MASARG)" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Mount Alexander Shire Accommodation and Respite Group (MASARG)</div></a>
+            <a href="#Mount Alexander Shire Disability Advocacy Group (MASDAG)" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Mount Alexander Shire Disability Advocacy Group (MASDAG)</div></a>
+            <a href="#My Home Network" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">My Home Network</div></a>
+            <a href="#Rural Australians for Refugees - Castlemaine" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Rural Australians for Refugees - Castlemaine</div></a>
+            <a href="#Young People of Mount Alexander Shire" style="text-decoration: none;"><div class="organisations-name" style="cursor: pointer">Young People of Mount Alexander Shire</div></a>
+          </div>
+      </div>
+      <div class="video">
+        <div id="Castlemaine Commons" class="video-title">Castlemaine Commons</div>
+        <div class="organisation-blurb"><p>Formed during the early stages of COVID-19, the Castlemaine Commons collective works responsively and locally hosting events & discussions -  fostering new ways of communication, community connection, sense making, catalysing action and creating collective future visions. </p><p></p><p>We are also part of the newly formed First Nations Solidarity Network - Liyanganyuk Banyul. As non-Indigenous community members we understand it is our responsibility to walk together in right relationship with a commitment to truth telling. We know that when First Peoples are supported to thrive, we all thrive.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/klP1Z1z_gW4?si=eGC3y7jKm6Vlpqiz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Castlemaine Community House" class="video-title">Castlemaine Community House</div>
+        <div class="organisation-blurb"><p><p><a href="https://cch.org.au/" target="_blank" rel="noopener noreferrer">Castlemaine Community House</a> (CCH) provides programs and activities contributing to community development and supporting individuals and groups within the local community.</p></p><p><p>CCH is:</p><ul><li>a learning centre</li><li>a meeting place</li><li>a not-for-profit enterprise</li><li>a drop-in centre</li><li>a supportive, welcoming place</li><li>an information network</li></ul></p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/uzQxQKlMJgU?si=dKPopoAt0wS2mdLO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Castlemaine Pride" class="video-title">Castlemaine Pride</div>
+        <div class="organisation-blurb"><p><a href="https://castlemainepride.org.au/" target="_blank" rel="noopener noreferrer">Castlemaine Pride</a> is a volunteer-led community group that organises the Pride Festival each year. The community grew out of the local grassroots movement in support of marriage equality. They continue to support and connect the local LGBTQIA+ community and advocate for the safety and inclusion of LGBTQIA+ people in the Mount Alexander Shire.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/dtnP0Cg88dA?si=emG5F1JVBKSE_tPE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Castlemaine Safe Space" class="video-title">Castlemaine Safe Space</div>
+        <div class="organisation-blurb"><p><a href"https://www.castlemainesafespace.org/" target="_blank" rel="noopener noreferrer">Castlemaine Safe Space</a> is a non-clinical drop­ in Space for anyone in emotional distress, or experiencing loneliness or suicidal thoughts. We are community designed and led, and staffed by trained peer volunteers with lived experience.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/CgKTDqR2xGo?si=w8qtdw3pb02zlzOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Castlemaine School Strike 4 Climate" class="video-title">Castlemaine School Strike 4 Climate</div>
+        <div class="organisation-blurb"><p>School Strike For Climate is a network of school students united by our concern for the future of our planet and all life on it.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/QYNzgpjqwTA?si=h7Iob4RB9kXeEB84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Central Victoria Climate Action" class="video-title">Central Victoria Climate Action</div>
+        <div class="organisation-blurb"><p><a href="https://www.facebook.com/centralvictoriaclimateaction" target="_blank" rel="noopener noreferrer">Central Victoria Climate Action</a> is a grassroots community group made up of climate concerned citizens working together for climate action.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/kajTnpOfRwM?si=VOcewTDt6-_-Cyk2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Free Palestine Central Victoria" class="video-title">Free Palestine Central Victoria</div>
+        <div class="organisation-blurb"><p><a href="https://www.facebook.com/freepalestinecentralvic" target="_blank" rel="noopener noreferrer">Free Palestine Central Victoria</a> is a Castlemaine-based community organising + action group, in solidarity with Palestine.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/cnK4wewZaOM?si=_Td1PSGwdMbNAz_p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Mount Alexander Shire Accommodation and Respite Group (MASARG)" class="video-title">Mount Alexander Shire Accommodation and Respite Group (MASARG)</div>
+        <div class="organisation-blurb"><p>MASARG is an independent, non political, not for profit charitable organisation working with people with intellectual disabilities and their carers in Castlemaine and surrounds. MASARG built a much needed respite house in Melissa CRT, McKenzies Hill Castlemaine that was opened in 2016. MASARG are now advocating for the right for people with an intellectual disability to have safe, secure and affordable long term housing in Castlemaine.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/-7_cL0S9H2Y?si=UkdKfqBvnRofwEnC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Mount Alexander Shire Disability Advocacy Group (MASDAG)" class="video-title">Mount Alexander Shire Disability Advocacy Group (MASDAG)</div>
+        <div class="organisation-blurb"><p><a href="https://www.mountalexander.vic.gov.au/Community-and-Wellbeing/Community-directory/Mount-Alexander-Shire-Disability-Advocacy-Group-MASDAG" target="_blank" rel="noopener noreferrer">Mount Alexander Shire Disability Advocacy Group (MASDAG)</a> is an independent volunteer advocate proudly auspiced by Castlemaine Community House. Our aim is to remove barriers and promote systemic change that supports equitable social participation for people with the wide range of disabilities in Mount Alexander Shire, their families and friends.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/41IzvJ9PUz4?si=nesJdtbgSrNEaEai" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="My Home Network" class="video-title">My Home Network</div>
+        <div class="organisation-blurb"><p><a href="https://dhelkayahealth.org.au/my-home-network/" target="_blank" rel="noopener noreferrer">My Home Network</a> is a local network made up of local people with lived experience of housing crisis and homelessness, community members with diverse expertise and community and government organisations. The network believes that everyone has a right to safe, affordable, secure, sustainable and appropriate housing that recognises their place in and connections to Community and Country.</p><p></p><p>Current work includes that of the  Homeshare community, tiny homes on wheels, tenants rights working group, vacant dwellings and advocacy working groups and rough sleeper action group and advocating for a Solar bank to ensure equitable access for all community members to affordable renewable energy.</p><p></p><p>The My Home Network works closely with Mount Alexander Shire Council across various departments and with the permanent full time housing solutions broker Clare Richards.</p><p></p><p>We support Council in their work to address the housing crisis -see Let's talk about affordable housing | Shape Mount Alexander which is essentially about bringing diverse social housing to Mount Alexander Shire (we need 600 more social housing units) and setting up a Mount Alexander Charitable  Affordable Housing Trust (MAAHT).</p><p></p><p>They are also in the process of employing a Homelessness coordinator who will scope, support and coordinate formal and informal Homelessness supports in the Shire.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/fdA-CyVMp3U?si=aiqIY5yWKhOBnXLr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Rural Australians for Refugees - Castlemaine" class="video-title">Rural Australians for Refugees - Castlemaine</div>
+        <div class="organisation-blurb"><p>Rural Australians for Refugees Castlemaine is a grassroots, volunteer-led community group who are united in supporting a compassionate approach towards refugees and people seeking asylum.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/u0R6R17py7o?si=zZjg5YvmAU2UTbrW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <div id="Young People of Mount Alexander Shire" class="video-title">Young People of Mount Alexander Shire</div>
+        <div class="organisation-blurb"><p>Billy Lister - Young Citizen of the Year 2022, representative of Mount Alexander Shire Youth Advisory Group and Castlemaine Secondary College Student representative council canvassed young people in the Mount Alexander Shire to present a series of questions for the candidates in the Mount Alexander Shire local council election.</p></div>
+        <iframe style="margin: 40px; aspect-ratio: 16/9; flex-grow: 1; width: 100%" src="https://www.youtube.com/embed/UMAyo6T3xxM?si=V0akXnMAaiwsJFXH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
   </body>

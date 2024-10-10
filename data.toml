@@ -116,6 +116,7 @@ title = "Castlemaine Commons"
 blurb = """Formed during the early stages of COVID-19, the Castlemaine Commons collective works responsively and locally hosting events & discussions -  fostering new ways of communication, community connection, sense making, catalysing action and creating collective future visions. 
 
 We are also part of the newly formed First Nations Solidarity Network - Liyanganyuk Banyul. As non-Indigenous community members we understand it is our responsibility to walk together in right relationship with a commitment to truth telling. We know that when First Peoples are supported to thrive, we all thrive."""
+video_url = "https://www.youtube.com/embed/klP1Z1z_gW4?si=eGC3y7jKm6Vlpqiz"
 
 [[organisations.questions]]
 text = "Since the referendum we have seen an increase in racism in schools and across our community. How will you address this division and ensure there is accountability and transparency about the learning and truth telling that is needed? "
@@ -154,6 +155,7 @@ comment_question = "Please provide any comments you have about writing to the Fi
 title = "Castlemaine Community House"
 blurb = """<p><a href="https://cch.org.au/" target="_blank" rel="noopener noreferrer">Castlemaine Community House</a> (CCH) provides programs and activities contributing to community development and supporting individuals and groups within the local community.</p>
 <p>CCH is:</p><ul><li>a learning centre</li><li>a meeting place</li><li>a not-for-profit enterprise</li><li>a drop-in centre</li><li>a supportive, welcoming place</li><li>an information network</li></ul>"""
+video_url = "https://www.youtube.com/embed/uzQxQKlMJgU?si=dKPopoAt0wS2mdLO"
 
 [[organisations.questions]]
 text = "How will you maintain strong connections and ensure you keep in touch with your constituents?"
@@ -171,6 +173,7 @@ answer_type = "comment"
 [[organisations]]
 title = "Castlemaine Pride"
 blurb = "<a href=\"https://castlemainepride.org.au/\" target=\"_blank\" rel=\"noopener noreferrer\">Castlemaine Pride</a> is a volunteer-led community group that organises the Pride Festival each year. The community grew out of the local grassroots movement in support of marriage equality. They continue to support and connect the local LGBTQIA+ community and advocate for the safety and inclusion of LGBTQIA+ people in the Mount Alexander Shire."
+video_url = "https://www.youtube.com/embed/dtnP0Cg88dA?si=emG5F1JVBKSE_tPE"
 
 [[organisations.questions]]
 text = """Things should be getting better for LGBTQIA+ young people but, alarmingly, in 2024 discrimination and hate speech is on the rise. 66% of LGBTQIA+ youth in Australia still experience discrimination just for being who they are. 
@@ -199,6 +202,7 @@ comment_question = "Please provide any comments you have about taking the 'Rainb
 [[organisations]]
 title = "Castlemaine Safe Space"
 blurb = "<a href\"https://www.castlemainesafespace.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Castlemaine Safe Space</a> is a non-clinical drop­ in Space for anyone in emotional distress, or experiencing loneliness or suicidal thoughts. We are community designed and led, and staffed by trained peer volunteers with lived experience."
+video_url = "https://www.youtube.com/embed/CgKTDqR2xGo?si=w8qtdw3pb02zlzOY"
 
 [[organisations.questions]]
 text = "Would you support and advocate for future funding to ensure the sustainability of Castlemaine Safe Space, and if so, how would you do this?"
@@ -214,6 +218,7 @@ comment_question = "Please provide any comments you have about prioritising emer
 [[organisations]]
 title = "Castlemaine School Strike 4 Climate"
 blurb = "School Strike For Climate is a network of school students united by our concern for the future of our planet and all life on it."
+video_url = "https://www.youtube.com/embed/QYNzgpjqwTA?si=h7Iob4RB9kXeEB84"
 
 [[organisations.questions]]
 text = "What role do you think that Council can play in fighting the climate crisis? And what do you think are its limitations?"
@@ -234,6 +239,7 @@ answer_type = "comment"
 [[organisations]]
 title = "Central Victoria Climate Action"
 blurb = "<a href=\"https://www.facebook.com/centralvictoriaclimateaction\" target=\"_blank\" rel=\"noopener noreferrer\">Central Victoria Climate Action</a> is a grassroots community group made up of climate concerned citizens working together for climate action."
+video_url = "https://www.youtube.com/embed/kajTnpOfRwM?si=VOcewTDt6-_-Cyk2"
 
 [[organisations.questions]]
 text = "Given that MASC declared a climate emergency and the UN peak scientific climate body the IPCC said in March 2023 that there can be no new fossil fuel projects if we are to have even a chance of aligning with Paris, will you support council taking action to change its default super fund for its employees to an ethical fund that has ruled out investing in companies doing new fossil fuel projects?"
@@ -261,6 +267,9 @@ comment_question = "Please provide any comments you have about ensuring that all
 [[organisations]]
 title = "Free Palestine Central Victoria"
 blurb = "<a href=\"https://www.facebook.com/freepalestinecentralvic\" target=\"_blank\" rel=\"noopener noreferrer\">Free Palestine Central Victoria</a> is a Castlemaine-based community organising + action group, in solidarity with Palestine."
+video_url = "https://www.youtube.com/embed/cnK4wewZaOM?si=_Td1PSGwdMbNAz_p"
+
+# Old version of question, not answered
 #"If I am elected as a local Councillor at the October 2024 Local Government Elections, I pledge to support a Council Resolution denouncing Israel’s Occupation, Apartheid, and Genocidal War on Palestine."
 
 [[organisations.questions]]
@@ -277,6 +286,8 @@ comment_question = "Please provide any comments you have about Council formally 
 text = "If elected as a local Councillor at the October 2024 Local Government Elections, do you commit to update the Council's procurement and investment policies to avoid and divest from companies that support or profit from internationally recognised human rights abuses, and increase the transparency of Council’s financial transactions and commitments?"
 answer_type = "yes_no_other"
 comment_question = "Please provide any comments you have about updating the Council's procurement and investment policies here:"
+
+# Old version of question, not answered
 #"If I am elected as a local Councillor at the October 2024 Local Government Elections, I pledge to ensure the Council adopts an active and consistent position on human rights and demonstrates this commitment by implementing a Cultural Diversity and Inclusion policy within the first two years."
 #"If I am elected as a local Councillor at the October 2024 Local Government Elections, I pledge to update the Council's procurement and investment policies to avoid and divest from companies that support Apartheid practices or profit from it. Council must take action immediately wherever there is a question about their compliance with human rights and ethical standards."
 
@@ -284,16 +295,20 @@ comment_question = "Please provide any comments you have about updating the Coun
 [[organisations]]
 title = "Mount Alexander Shire Accommodation and Respite Group (MASARG)"
 blurb = "MASARG is an independent, non political, not for profit charitable organisation working with people with intellectual disabilities and their carers in Castlemaine and surrounds. MASARG built a much needed respite house in Melissa CRT, McKenzies Hill Castlemaine that was opened in 2016. MASARG are now advocating for the right for people with an intellectual disability to have safe, secure and affordable long term housing in Castlemaine."
+video_url = "https://www.youtube.com/embed/-7_cL0S9H2Y?si=UkdKfqBvnRofwEnC"
 
 [[organisations.questions]]
 text = "Do you acknowledge that the needs of people with disabilities, and particularly those with intellectual disabilities, are different to others and how will this be considered in decisions about social and affordable housing?"
 answer_type = "comment"
+
+# Old version of question, not answered
 #"Are there any further comments you would like to make about your position on supporting People Living with Disabilities, particularly Intellectual Disabilities,  in Mount Alexander Shire?"
 
 
 [[organisations]]
 title = "Mount Alexander Shire Disability Advocacy Group (MASDAG)"
 blurb = "<a href=\"https://www.mountalexander.vic.gov.au/Community-and-Wellbeing/Community-directory/Mount-Alexander-Shire-Disability-Advocacy-Group-MASDAG\" target=\"_blank\" rel=\"noopener noreferrer\">Mount Alexander Shire Disability Advocacy Group (MASDAG)</a> is an independent volunteer advocate proudly auspiced by Castlemaine Community House. Our aim is to remove barriers and promote systemic change that supports equitable social participation for people with the wide range of disabilities in Mount Alexander Shire, their families and friends."
+video_url = "https://www.youtube.com/embed/41IzvJ9PUz4?si=nesJdtbgSrNEaEai"
 
 [[organisations.questions]]
 text = """Are you aware of the Mount Alexander Disability and Inclusion Action Plan?  
@@ -312,6 +327,7 @@ The My Home Network works closely with Mount Alexander Shire Council across vari
 We support Council in their work to address the housing crisis -see Let's talk about affordable housing | Shape Mount Alexander which is essentially about bringing diverse social housing to Mount Alexander Shire (we need 600 more social housing units) and setting up a Mount Alexander Charitable  Affordable Housing Trust (MAAHT) .
 
 They are also in the process of employing a Homelessness coordinator who will scope, support and coordinate formal and informal Homelessness supports in the Shire."""
+video_url = "https://www.youtube.com/embed/fdA-CyVMp3U?si=aiqIY5yWKhOBnXLr"
 
 [[organisations.questions]]
 text = "If elected, would you join the My Home Network (MHN) and support our work?"
@@ -337,6 +353,9 @@ comment_question = "Please provide any comments you have about engaging with the
 [[organisations]]
 title = "Rural Australians for Refugees - Castlemaine"
 blurb = "Rural Australians for Refugees Castlemaine is a grassroots, volunteer-led community group who are united in supporting a compassionate approach towards refugees and people seeking asylum."
+video_url = "https://www.youtube.com/embed/u0R6R17py7o?si=zZjg5YvmAU2UTbrW"
+
+# Old version of question (not responsed to)
 #        """In 2014 Mount Alexander Shire made a statement of commitment to being a Refugee Welcome Zone. Council, in conjunction with Rural Australians for Refugees Castlemaine and Loddon Campaspe Multicultural Services, developed an action plan for the years 2018-2021.
 #
 #Would you support re-stating the commitment declaring Mount Alexander Shire a Refugee Free Zone and advocate for a review of the action plan?"""
@@ -351,12 +370,14 @@ comment_question = "Please provide any comments you have about re-stating the co
 [[organisations.questions]]
 text = "What would you do to welcome refugees and promote inclusiveness and acceptance of cultural diversity in the Shire?"
 answer_type = "comment"
-#"Are there any further comments you would like to make about your position on supporting Refugees in Mount Alexander Shire?"
 
+# Old version of question (not responsed to)
+#"Are there any further comments you would like to make about your position on supporting Refugees in Mount Alexander Shire?"
 
 [[organisations]]
 title = "Young People of Mount Alexander Shire"
 blurb = "Billy Lister - Young Citizen of the Year 2022, representative of Mount Alexander Shire Youth Advisory Group and Castlemaine Secondary College Student representative council canvassed young people in the Mount Alexander Shire to present a series of questions for the candidates in the Mount Alexander Shire local council election."
+video_url = "https://www.youtube.com/embed/UMAyo6T3xxM?si=V0akXnMAaiwsJFXH"
 
 [[organisations.questions]]
 text = "The 2023-2026 Mount Alexander Shire Middle Years Plan was adopted last year, how would you ensure that those recommendations are implemented and delivered efficiently?"

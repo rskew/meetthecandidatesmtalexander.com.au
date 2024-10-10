@@ -9,11 +9,12 @@
     in {
       packages.x86_64-linux.default = pkgs.writeShellScriptBin "answers-to-html" ''
         mkdir -p site/candidates
-        ${python}/bin/python ${./render_templates.py} ${./data.toml} ${./responses.csv} ${./index.template.html} ./site ${./candidate.template.html} ./site/candidates ${./ward.template.html} ./site/wards
+        ${python}/bin/python ${./render_templates.py} ${./data.toml} ${./responses.csv} ${./index.template.html} ${./media.template.html} ./site ${./candidate.template.html} ./site/candidates ${./ward.template.html} ./site/wards
       '';
       packages.x86_64-linux.watch = pkgs.writeShellScriptBin "watch-rebuild" ''
-        ${python}/bin/python render_templates.py data.toml responses.csv index.template.html site/ candidate.template.html site/candidates ward.template.html site/wards
-        while ${pkgs.inotify-tools}/bin/inotifywait -e modify .; do ${python}/bin/python render_templates.py data.toml responses.csv index.template.html site/ candidate.template.html site/candidates ward.template.html site/wards; done
+        RENDER_CMD="${python}/bin/python render_templates.py data.toml responses.csv index.template.html media.template.html site/ candidate.template.html site/candidates ward.template.html site/wards"
+        bash -c "$RENDER_CMD"
+        while ${pkgs.inotify-tools}/bin/inotifywait -e modify .; do bash -c "$RENDER_CMD"; done
       '';
       packages.x86_64-linux.process-images = pkgs.writeShellScriptBin "process-images" ''
         set -eux
