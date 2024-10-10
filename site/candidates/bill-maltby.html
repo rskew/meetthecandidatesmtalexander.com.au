@@ -213,6 +213,13 @@
         element.scrollIntoView({ behavior: 'smooth' });
       });
 
+      ["section_button_left", "section_button_right"].forEach(function(id) {
+        document.getElementById(id).addEventListener("click", () => {
+          let element = document.getElementById('sections_with_buttons');
+          element.scrollIntoView({ behavior: 'smooth' });
+        });
+      })
+
       updateSection();
     })
   </script>
